@@ -19,7 +19,7 @@ public interface SessionFactory {
     public Map<String, String> createDefaultOptions();
 
     /**
-     * Cleans up the session - closed all taks
+     * Cleans up the session - closed all tasks
      * @param options
      *            the options for cleaning up
      * @throws Exception
