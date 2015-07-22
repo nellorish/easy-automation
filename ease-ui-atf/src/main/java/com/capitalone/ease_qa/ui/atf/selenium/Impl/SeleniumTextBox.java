@@ -15,7 +15,7 @@ import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
  *
  * 
  */
-public class SeleniumTextBox extends SeleniumWebElement implements TextElement {
+public class SeleniumTextBox extends SeleniumTextReader implements TextElement {
 
 	
 	public SeleniumTextBox(ExtUiDriver driver){
@@ -26,47 +26,5 @@ public class SeleniumTextBox extends SeleniumWebElement implements TextElement {
 		setSelector(selector);
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public List<String> getTextList() throws FixtureError {
 	
-		return null;
-	}
-
-	@Override
-	public TextElement get() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<TextElement> getList() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ActionElement asLink() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public void setText(String txt) throws FixtureError {
-		getSelectorObject().sendKeys(txt);
-		
-	}
-	@Override
-	public boolean containsText(String txt) throws FixtureError {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public String getFormattedText() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
-	
-	}
+}

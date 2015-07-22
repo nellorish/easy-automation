@@ -12,17 +12,16 @@ public class SeleniumHyperLink extends SeleniumWebElement implements
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public void pressEnter() throws FixtureError {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public String getText() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Override
 	public String getFormattedText() throws FixtureError {
 		// TODO Auto-generated method stub
 		return null;
-	}}
+	}
+}
+
