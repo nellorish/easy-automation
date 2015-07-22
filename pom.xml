@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <!-- <parent>
+		  <groupId>com.capitalone.upf.openupf.common</groupId>
+		  <artifactId>upf-super-pom</artifactId>
+		  <version>02.06.00.00</version>
+	</parent> -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.capitalone.ease.qa</groupId>
+  <artifactId>ease-automation</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>ease-automation</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+  
+   <modules>
+        <module>ease-fixture</module>
+         <module>ease-ui-atf</module>
+    </modules> 
+  
+  <organization>
+  	<name>CapitalOne</name>
+  </organization>
+   <scm>
+  	<developerConnection>Mohan_Nellore</developerConnection>
+  	<url>https://github.kdc.capitalone.com/gtg716/ease-bank-atf.git</url>
+   </scm>
+  <description>Parent project for all ease automation tests</description>
+  
+  <dependencies>
+      
+       <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    
+      
+      </dependency>
+  </dependencies>
+
+</project>

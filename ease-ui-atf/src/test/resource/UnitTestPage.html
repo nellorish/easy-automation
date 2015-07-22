@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Fixtures Test Page</title>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+
+</head>
+
+<body>
+
+	<input type="text" data-mask="^[0-9a-zA-Z]+$"
+		style="font-size: 12px; color: blue"
+		class="inputBox noToolTip validate dim" tabindex="1" name="username1"
+		value="username1" data-minlength="6" data-required="true"
+		placeholder="Enter your username" />
+
+	<input type="text" data-mask="^[0-9a-zA-Z]+$"
+		class="inputBox noToolTip validate dim" tabindex="1" name="username2"
+		value="username2" id="username_id" data-minlength="6"
+		data-required="true" placeholder="Enter your username" />
+
+
+	<input type="submit" class="yui3-button yui3-button-primary-icon-lock"
+		onclick="$('#username_id').val('clicked!'); " tabindex="3"
+		value="Log in" name="login" id="loginButton-button" />
+
+	<div class="username_display">al_user21</div>
+
+
+	<form>
+		<input type="radio" name="status" value="open"><label>Open</label>
+		<input type="radio" name="status" value="closed"><label>Closed</label>
+		
+		<input type="checkbox" name="alert" value="true"><label>Alert</label>
+		
+		<label id="clickable" data-auto="testdataauto">Alert Label</label>
+	</form>
+
+	<a id="myLink" href="#"
+		onclick="$('#username_id').val('clicked!');return false;">link
+		text</a>
+	
+	<a id="myLink" href="https://pulse.kdc.capitalone.com/welcome">partial link text</a>
+
+	<iframe id="myIframe" src="IFrameTestPage.html"></iframe>
+	<br>
+	<select id="myDropdown" name="items">
+		<option value="1">item1</option>
+
+
+		<option value="2">item2</option>
+
+	</select>
+	<br>
+	<br />
+	<br />
+	<a id="testLink" href="#"
+		onclick="$('#username_id').val('clicked!');return false;">Test<br/>Link</a>
+	<p id="testPara">This text is to Test<br/>the Formatted			text tag</p>	
+	<div id="rn_Multiline2WithAnsVars_6_Content">
+		<ol start="1">
+			<li><span class="rn_Element1"><a
+					href="/app/answers/detail/a_id/453">Why doesn't the temporary
+						authorization amount match my receipt?</a></span> <span class="rn_Element2">Gas
+					stations, restaurants, hotels, car rental agencies, and airlines
+					commonly use temporary authorizations because the card information
+					is provided before the final transaction amount is known. Once...</span> <br>
+			</li>
+			<li><span class="rn_Element1"><a
+					href="/app/answers/detail/a_id/563">How secure is the online
+						servicing service?</a></span> <span class="rn_Element2">Our website
+					uses encryption to ensure the safety and security of our
+					Cardmembers. When you set up online payments, your information is
+					transmitted securely using the industry standard encryption...</span> <br>
+			</li>
+			<li><span class="rn_Element1"><a
+					href="/app/answers/detail/a_id/455">How long will temporary
+						authorizations remain on my account?</a></span> <span class="rn_Element2">Temporary
+					authorizations can remain on your account for up to 10 days. In the
+					event of an error, only the merchant can remove the authorization.</span>
+				<br></li>
+
+		</ol>
+	</div>
+
+
+</body>
+</html>
