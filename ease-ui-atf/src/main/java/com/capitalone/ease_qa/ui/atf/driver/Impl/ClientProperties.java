@@ -130,7 +130,7 @@ public class ClientProperties {
         }
 
           webDriverIEDriver = load("webdriver.ie.driver", null, "Path to IEDriverServer.exe");
-        webDriverChromeDriver = load("webdriver.chrome.driver", "C:\\driver\\chromedriver.exe",
+        webDriverChromeDriver = load("webdriver.chrome.driver", null,
                 "Path to chromedriver executable");
 
   

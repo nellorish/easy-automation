@@ -3,11 +3,8 @@
  */
 package com.capitalone.ease_qa.ui.atf.selenium.Impl;
 
-import java.util.List;
-
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
-import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
 import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 
 /**
@@ -25,6 +22,11 @@ public class SeleniumTextBox extends SeleniumTextReader implements TextElement {
 		super(driver);
 		setSelector(selector);
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public void setText(String txt) throws FixtureError {
+	
+	   getSelectorObject().sendKeys(txt);	
 	}
 	
 }

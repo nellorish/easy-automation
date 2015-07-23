@@ -6,10 +6,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.driver.SessionManager;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
 import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
+import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 import com.capitalone.ease_qa.ui.atf.selenium.WaitforConditionTimer;
 
 
@@ -30,13 +32,15 @@ public class CapitalOneLoginTest  {
 	    driver=SessionManager.getInstance().getNewSession("client","chrome.properties");;
 	    driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.capitalone.com/");
 	    //driver.pauseFor(2);
-	    final LoginPageFixture login = new LoginPageFixture(driver);
+	   TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
+	   System.out.println(" Print the text on Login "+element.getText());
+	   final LoginPageFixture login = new LoginPageFixture(driver);
 	    login.enterUsername("al_user21");
 	    login.enterPassword("abcd12345");
 	    driver.waitUntil(new WaitforConditionTimer() {
 			public boolean ensure() {
 				try {
-					ActionElement element = driver.getElementFactory().createButton("xpath://button[@type='submit']");
+					ActionElement element = driver.getElementFactory().createButton("login-start-button");
 					String flag = element.getHtmlAttribute("aria-disabled");
 					System.out.println(flag);
 					element.click();
@@ -49,14 +53,10 @@ public class CapitalOneLoginTest  {
 				return false;
 			}
 		});
-	   
-	    
 	    login.clickLogin();
 	    driver.waitUntil(new WaitforConditionTimer() {
-			
 			public boolean ensure() {
-				
-				return login.getTitle().equalsIgnoreCase("EASE | Account Summary");
+			return login.getTitle().equalsIgnoreCase("EASE | Account Summary");
 			}
 		});
 	    

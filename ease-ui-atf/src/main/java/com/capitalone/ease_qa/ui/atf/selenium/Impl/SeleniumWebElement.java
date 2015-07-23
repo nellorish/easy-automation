@@ -37,11 +37,7 @@ public class SeleniumWebElement implements Element{
 		throw new UnImplementedException(m_selector, null);
 	}
 
-	public void setText(String txt) throws FixtureError {
 	
-	
-		throw new UnImplementedException(txt, null);
-	}
 
 	@Override
 	public String getSelector() {

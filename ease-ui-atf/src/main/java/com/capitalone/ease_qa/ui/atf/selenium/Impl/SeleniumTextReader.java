@@ -92,4 +92,12 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 		return a;
 	}
 
+	@Override
+	public void setText(String txt) throws FixtureError {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }
