@@ -4,6 +4,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import com.capitalone.ease.ui.fixture.LoginPageFixture;
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
+import com.capitalone.ease_qa.ui.atf.driver.SessionManager;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
 
 import cucumber.api.java.en.Given;
@@ -26,18 +27,22 @@ public class LoginStepDefs {
 	private LoginPageFixture login;
 	public AbstractApplicationContext context = null;
 	 
-	 public LoginStepDefs() throws FixtureError{
+	 public LoginStepDefs() throws Exception{
 	   // context = new ClassPathXmlApplicationContext("spring-chrome.xml");
 	  //  driver = (ExtUIDriver) ctx.getBean("uidriver");
-		//login =new LoginPageFixture(driver);
-		 
+		  
 		// driver = DriverManager.getInstance().getNewSession("browser","/localproperties/firefox.properties");
+		 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+		 login =new LoginPageFixture(driver);
 	 }
 	 
 	 @Given("^I`m on the easy login page$")
 	 public void i_m_on_the_easy_login_page() throws Throwable {
 	     // Write code here that turns the phrase above into concrete actions
-		 driver.getElementFactory().createWebPage().goToPage("http://awseasedev11web1.kdc.capitalone.com:8080/ease-ui/#/login"); 
+		 
+		// http://awseasedev11web1.kdc.capitalone.com:8080/ease-ui/#/login");
+		 
+		 driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.capitalone.com/"); 
 	 }
 
 	 @When("^Enter the Username \"(.*?)\" and password \"(.*?)\"$")

@@ -4,6 +4,7 @@ package com.capitalone.ease.ui.fixture;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,13 +30,28 @@ public class CapitalOneLoginTest  {
 
 	@Test
 	public void doLogin() throws Exception{
-	    driver=SessionManager.getInstance().getNewSession("client","chrome.properties");;
+	    driver=SessionManager.getInstance().getNewSession("client","chrome.properties");
 	    driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.capitalone.com/");
 	    //driver.pauseFor(2);
-	   TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
-	   System.out.println(" Print the text on Login "+element.getText());
+	    driver.waitUntil(new WaitforConditionTimer() {
+			
+			@Override
+			public boolean ensure() {
+				TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
+				// TODO Auto-generated method stub
+				try {
+					return element.isElementExists();
+				} catch (FixtureError e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return false;
+			}
+		});
+	   
+	   // System.out.println(" Print the text on Login "+element.getText());
 	   final LoginPageFixture login = new LoginPageFixture(driver);
-	    login.enterUsername("al_user21");
+	    login.enterUsername("ease_checking360");
 	    login.enterPassword("abcd12345");
 	    driver.waitUntil(new WaitforConditionTimer() {
 			public boolean ensure() {
@@ -61,14 +77,53 @@ public class CapitalOneLoginTest  {
 		});
 	    
 	    //driver.pauseFor(10);
-	    assertEquals("EASE | Account Summary", login.getTitle());
+      assertEquals("EASE | Account Summary", login.getTitle());
+      
+      driver.getElementFactory().createActionElement("class:atddAccountType").click(); 
+      driver.getElementFactory().createHyperLink("viewDetailLink").click();
+      
+      driver.waitUntil(new WaitforConditionTimer() {
+		
+		@Override
+		public boolean ensure() {
+			TextElement element= driver.getElementFactory().createTextElement("ProductName");
+			try {
+				return element.isElementVisible();
+			} catch (FixtureError e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return false;
+		}
+	});
+      
+      driver.waitUntil(new WaitforConditionTimer() {
+		
+		@Override
+		public boolean ensure() {
+			ActionElement element = driver.getElementFactory().createButton("class:close-dialog");
+			// TODO Auto-generated method stub
+			try {
+				return element.isElementVisible();
+			} catch (FixtureError e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return false;
+		}
+	});
+      
+      driver.getElementFactory().createButton("class:close-dialog").click();
+      driver.getElementFactory().createButton("class:back-to-summary").click();;
+      Assert.assertEquals("EASE | Account Summary",login.getTitle());
+      
 	}
 	
 	
 	
 	@After
 	public void shutdownBrowser(){
-		driver.shutdown();
+	  //driver.shutdown();
 	}
 	
 /*	//@Test
