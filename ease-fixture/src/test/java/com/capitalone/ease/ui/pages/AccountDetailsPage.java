@@ -35,4 +35,8 @@ public class AccountDetailsPage {
 	public ActionElement getTranferButtonOnHero(){
 		return m_driver.getElementFactory().createButton("transferMoney");
 	}
+	
+	public TextElement getTransactionsList(){
+		return m_driver.getElementFactory().createTextElement("xpath://ul[class='transactionList']/li");
+	}
 }

@@ -8,5 +8,11 @@ public class SeleniumCheckBox extends SeleniumSelectableElement {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
+
+	public SeleniumCheckBox(ExtUiDriver m_driver, String selector) {
+		 super(m_driver);
+		 setSelector(selector);
+		// TODO Auto-generated constructor stub
+	}
    
 }

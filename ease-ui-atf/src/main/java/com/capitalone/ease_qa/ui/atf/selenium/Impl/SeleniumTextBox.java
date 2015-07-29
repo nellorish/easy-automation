@@ -23,10 +23,18 @@ public class SeleniumTextBox extends SeleniumTextReader implements TextElement {
 		setSelector(selector);
 		// TODO Auto-generated constructor stub
 	}
+	
 	@Override
 	public void setText(String txt) throws FixtureError {
-	
+	   clear();
 	   getSelectorObject().sendKeys(txt);	
 	}
+	
+	@Override
+	public String getText() throws FixtureError {
+		
+		return getSelectorObject().getAttribute("value");
+	}
+	
 	
 }

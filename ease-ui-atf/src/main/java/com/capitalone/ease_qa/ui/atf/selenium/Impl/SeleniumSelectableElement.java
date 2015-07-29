@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
+import com.capitalone.ease_qa.ui.atf.error.MatchValueError;
+import com.capitalone.ease_qa.ui.atf.error.UnImplementedException;
 import com.capitalone.ease_qa.ui.atf.selenium.Element;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
@@ -42,15 +44,27 @@ public class SeleniumSelectableElement extends SeleniumWebElement implements
 	}
 
 	@Override
-	public List<String> getTextList() throws FixtureError {
+	public List<String> getTextList() throws FixtureError  {
 		// TODO Auto-generated method stub
-		return null;
+	    throw new UnImplementedException("Implementation Pending", null);
 	}
 
 	@Override
 	public String getSelectedValue() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			setSelectorObject(new MatchCallback() {
+
+				@Override
+				public boolean isMatchFound(Object webObject, String selector) {
+					WebElement element = (WebElement) webObject;
+					return element.isSelected();
+				}
+			});
+		} catch (MatchValueError mve) {
+			return null;
+		}
+
+		return getSelectorObject().getAttribute("value");
 	}
 
 }

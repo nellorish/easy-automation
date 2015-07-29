@@ -27,11 +27,17 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 		// TODO Auto-generated constructor stub
 	}
 
+	public SeleniumDropDown(ExtUiDriver driver, String selector) {
+		
+		super(driver);
+		setSelector(selector);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Element selectItemByValue(final String value) throws FixtureError {
 		setSelectorObject(new MatchCallback() {
-
-    	    @Override
+           @Override
 			public boolean isMatchFound(Object webObject, String selector) {
 				WebElement element = (WebElement) webObject;
 				return (element.getAttribute("value").equalsIgnoreCase(value));
@@ -45,6 +51,8 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 		return element;
 	}
 
+	
+	@Override
 	public boolean isSelected() throws FixtureError {
 	
 		List<WebElement> options = getOptionList();
@@ -56,6 +64,8 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 		}
         return false;
 	}
+	
+	
 	private List<WebElement> getOptionList() throws FixtureError {
 		
 		WebElement element = getSelectorObject();
@@ -69,6 +79,7 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 		return null;
 	}
 
+	@Override
 	public List<String> getTextList() throws FixtureError {
 		
 		List<WebElement> tList = getOptionList();
@@ -82,6 +93,7 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 		return textList;
 	}
 
+	@Override
 	public String getSelectedValue() throws FixtureError {
 		Select dropdown = new Select(getSelectorObject());
 		return dropdown.getFirstSelectedOption().getText();

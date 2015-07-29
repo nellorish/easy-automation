@@ -80,31 +80,14 @@ public class CapitalOneLoginTest  {
       assertEquals("EASE | Account Summary", login.getTitle());
       
       driver.getElementFactory().createActionElement("class:atddAccountType").click(); 
-      driver.getElementFactory().createHyperLink("viewDetailLink").click();
       
       driver.waitUntil(new WaitforConditionTimer() {
 		
 		@Override
 		public boolean ensure() {
-			TextElement element= driver.getElementFactory().createTextElement("ProductName");
-			try {
-				return element.isElementVisible();
-			} catch (FixtureError e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return false;
-		}
-	});
-      
-      driver.waitUntil(new WaitforConditionTimer() {
-		
-		@Override
-		public boolean ensure() {
-			ActionElement element = driver.getElementFactory().createButton("class:close-dialog");
 			// TODO Auto-generated method stub
 			try {
-				return element.isElementVisible();
+				return driver.getElementFactory().createHyperLink("viewDetailLink").isElementExists();
 			} catch (FixtureError e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -112,10 +95,52 @@ public class CapitalOneLoginTest  {
 			return false;
 		}
 	});
+      driver.windowScroll(0,1400);
+     // driver.windowScroll(600,0);
+      //driver.windowScroll(0,300);
+     // driver.getElementFactory().createHyperLink("viewDetailLink").click();
       
-      driver.getElementFactory().createButton("class:close-dialog").click();
-      driver.getElementFactory().createButton("class:back-to-summary").click();;
-      Assert.assertEquals("EASE | Account Summary",login.getTitle());
+      
+      //driver.switchToActiveWindow();
+      //driver.windowScroll(250,0);
+      //driver.scrollToElement(driver.getElementFactory().createElement("class:modal-container"));
+      
+    
+      
+//      driver.waitUntil(new WaitforConditionTimer() {
+//		
+//		@Override
+//		public boolean ensure() {
+//			TextElement element= driver.getElementFactory().createTextElement("ProductName");
+//			try {
+//				return element.isElementVisible();
+//			} catch (FixtureError e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			return false;
+//		}
+//	});
+//      
+//      driver.waitUntil(new WaitforConditionTimer() {
+//		
+//		@Override
+//		public boolean ensure() {
+//			ActionElement element = driver.getElementFactory().createButton("class:close-dialog");
+//			// TODO Auto-generated method stub
+//			try {
+//				return element.isElementVisible();
+//			} catch (FixtureError e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			return false;
+//		}
+//	});
+//      
+//     driver.getElementFactory().createButton("class:close-dialog").click();
+//      driver.getElementFactory().createButton("class:back-to-summary").click();
+//      Assert.assertEquals("EASE | Account Summary",login.getTitle());
       
 	}
 	

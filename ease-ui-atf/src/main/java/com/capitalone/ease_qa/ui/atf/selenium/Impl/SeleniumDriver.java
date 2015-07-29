@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -78,7 +79,7 @@ public class SeleniumDriver implements ExtUiDriver {
 		
 		
 		
-	     @Override
+	    @Override
 		public WebElement findElement(Element element) throws FixtureError {
 			try {
 				return findElement(element.getSelector(),
@@ -230,6 +231,33 @@ public class SeleniumDriver implements ExtUiDriver {
 				throw new FixtureError("Error while capturing screenshot", ioe);
 			}
 		}
+		
+		
+		
+		@Override
+		public void scrollToElement(Element element){
+			JavascriptExecutor jse = (JavascriptExecutor) getWebDriver();
+			jse.executeScript("arguments[0].scrollIntoView(true);", element);
+		}
+		
+		/**
+		 * Scrolls the current browser window to specific position
+		 * 
+		 * @param i
+		 *            Horizontal position
+		 * @param j
+		 *            Vertical position
+		 */
+		@Override
+		public void windowScroll(int i, int j) {
+			eval("window.scroll(" + i + "," + j + ");");
+		}
+	
+	     @Override
+	      public void eval ( String javascript){
+	         JavascriptExecutor jse = (JavascriptExecutor) getWebDriver();
+		     jse.executeScript(javascript);
+		  }
 
 		/*
 		 * Navigates back in the browser
@@ -345,18 +373,36 @@ public class SeleniumDriver implements ExtUiDriver {
 			// TODO Auto-generated method stub
 			
 		}
+		
+		@Override
+		/**
+		 * it returns the test resource full accessible path
+		 *
+		 * @param fileName
+		 *            local test file name eg. test.html
+		 * @return
+		 */
+		public String getLocalResource(String fileName) {
+			return String.format("%s%s", m_defaultFileResourceLocation, fileName);
+		}
+
+		@Override
+		public void setLocalResourcePath(String path) {
+			m_defaultFileResourceLocation = path;
+
+		}
 
 		
-
-		public String getM_defaultFileResourceLocation() {
-			return m_defaultFileResourceLocation;
-		}
-
-
-		public void setM_defaultFileResourceLocation(
-				String m_defaultFileResourceLocation) {
-			this.m_defaultFileResourceLocation = m_defaultFileResourceLocation;
-		}
+//
+//		public String getM_defaultFileResourceLocation() {
+//			return m_defaultFileResourceLocation;
+//		}
+//
+//
+//		public void setM_defaultFileResourceLocation(
+//				String m_defaultFileResourceLocation) {
+//			this.m_defaultFileResourceLocation = m_defaultFileResourceLocation;
+//		}
 
 	
 }

@@ -123,6 +123,9 @@ public class SeleniumWebElement implements Element{
 		
 		getSelectorObject().sendKeys(k.toString());
 	}
+	
+	
+	
 
 	@Override
 	public boolean isIgnoreElementIfNotExist() {
@@ -140,8 +143,7 @@ public class SeleniumWebElement implements Element{
 	public void click() throws FixtureError {
 		
 		getSelectorObject().click();
-
-	}
+    }
 
 	@Override
 	public boolean isElementVisible() throws FixtureError {

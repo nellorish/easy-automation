@@ -21,7 +21,13 @@ public class SeleniumHyperLink extends SeleniumWebElement implements
 	@Override
 	public String getFormattedText() throws FixtureError {
 		// TODO Auto-generated method stub
-		return null;
+		return getText().replace("\n", " ");
+	}
+	
+	@Override
+	public String getText() throws FixtureError{
+		
+		return getSelectorObject().getText();
 	}
 }
 

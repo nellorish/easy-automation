@@ -175,12 +175,8 @@ public class DefaultSessionFactory implements SessionFactory {
                 wd.manage().window().setPosition(new Point(browserInitPositionX, browserInitPositionY));
             }
         
-
-      
-    
-         selenium = new SeleniumDriver(wd);
-        
-        return selenium;
+            selenium = new SeleniumDriver(wd);
+            return selenium;
     }
                                                                                                                              
     

@@ -23,6 +23,12 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 		
 	}
 
+	public SeleniumTextReader(ExtUiDriver driver, String selector) {
+		// TODO Auto-generated constructor stub
+		super(driver);
+		setSelector(selector);
+	}
+
 	@Override
 	public String getText() throws FixtureError {
 		
@@ -33,7 +39,7 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 	@Override
 	public boolean containsText(String txt) throws FixtureError {
 		// TODO Auto-generated method stub
-		return false;
+		return getText().contains(txt);
 	}
 
 	@Override
@@ -82,7 +88,7 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 	@Override
 	public String getFormattedText() throws FixtureError {
 		// TODO Auto-generated method stub
-		return null;
+		return getText().replace("\n"," ");
 	}
 
 	@Override
@@ -97,7 +103,4 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 }

@@ -57,4 +57,15 @@ public interface ExtUiDriver {
 
 	void setSessionId(String sessionId);
 
+	void windowScroll(int i, int j);
+
+	void scrollToElement(Element element);
+
+	void eval(String javascript);
+
+	void setLocalResourcePath(String string);
+
+	String getLocalResource(String fileName);
+	
+
 }
