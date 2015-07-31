@@ -17,8 +17,8 @@ import com.capitalone.ease_qa.ui.atf.selenium.Impl.SeleniumDriver;
 public class TestDriver {
 	
 	public static ExtUiDriver getDriver(){
-	  ExtUiDriver driver = new SeleniumDriver(new ChromeDriver());
-	   //ExtUiDriver driver = new SeleniumDriver(new HtmlUnitDriver(true));
+	  //ExtUiDriver driver = new SeleniumDriver(new ChromeDriver());
+	   ExtUiDriver driver = new SeleniumDriver(new HtmlUnitDriver(true));
 		driver.setLocalResourcePath("file://" + driver.getClass().getClassLoader().getResource("").getPath());
         return driver;	
 	}

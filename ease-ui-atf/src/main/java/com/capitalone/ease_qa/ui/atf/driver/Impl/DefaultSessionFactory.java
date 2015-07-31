@@ -91,10 +91,7 @@ public class DefaultSessionFactory implements SessionFactory {
             
             return capabilities;
         } else {
-        	
-        	
-        	
-            return capabilities;
+        	return capabilities;
         }
 		
     }

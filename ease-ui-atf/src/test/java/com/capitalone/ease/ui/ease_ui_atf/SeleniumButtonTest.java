@@ -6,13 +6,13 @@ package com.capitalone.ease.ui.ease_ui_atf;
 
 
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
-import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
 import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 import com.capitalone.ease_qa.ui.atf.selenium.WebPage;
 import com.capitalone.ease_qa.ui.atf.selenium.Impl.SeleniumButton;
@@ -62,6 +62,10 @@ public class SeleniumButtonTest {
 		return textBox;
 	}
 	
+	@After
+	public void shutDowndriver(){
+		m_driver.shutdown();
+	}
 	
 	
 }

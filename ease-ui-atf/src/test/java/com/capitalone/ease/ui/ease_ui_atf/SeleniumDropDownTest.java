@@ -1,5 +1,6 @@
 package com.capitalone.ease.ui.ease_ui_atf;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -96,6 +97,11 @@ public class SeleniumDropDownTest {
 	private void gotoTestPage() {
 		WebPage page = new SeleniumWebPage(m_driver);
 		page.goToPage(m_driver.getLocalResource("UnitTestPage.html"));
+	}
+	
+	@After
+	public void shutDowndriver(){
+		m_driver.shutdown();
 	}
 
 
