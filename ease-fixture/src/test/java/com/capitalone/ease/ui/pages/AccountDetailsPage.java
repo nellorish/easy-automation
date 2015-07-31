@@ -13,6 +13,8 @@ public class AccountDetailsPage {
 	}
 
 	
+	
+	
 	public ActionElement getViewDetailsHyperLink(){
 		return m_driver.getElementFactory().createHyperLink("viewDetailLink");
 	}

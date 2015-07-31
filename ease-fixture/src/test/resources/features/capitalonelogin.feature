@@ -6,4 +6,4 @@ Scenario: Just Login
     When Enter the Username "" and password ""
     And Click login
     Then I should be on account summary page
-    
+    Then click on Checking account tile 

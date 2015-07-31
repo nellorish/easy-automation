@@ -24,6 +24,11 @@ public class AccountSummaryFixture {
 	public void goToCheckingAccount() throws FixtureError{
 		getAccountSummaryPage().getCheckingAccountTitle().click();
 	}
+
+	public boolean isAccountSummary() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

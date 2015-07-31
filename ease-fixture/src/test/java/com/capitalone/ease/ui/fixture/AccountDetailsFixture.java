@@ -41,4 +41,9 @@ public class AccountDetailsFixture {
 	public List<TextElement> getListOfTransactions() throws FixtureError{
 		return getAccountDetailsPage().getTransactionsList().getList();
 	}
+
+	public boolean isAccountDetailsPage() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }
