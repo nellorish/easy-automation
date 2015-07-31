@@ -18,4 +18,8 @@ public class FixtureError extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	public FixtureError() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

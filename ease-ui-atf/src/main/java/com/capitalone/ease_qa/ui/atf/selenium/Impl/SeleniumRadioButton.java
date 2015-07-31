@@ -1,14 +1,16 @@
 package com.capitalone.ease_qa.ui.atf.selenium.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.openqa.selenium.WebElement;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
-import com.capitalone.ease_qa.ui.atf.error.UnImplementedException;
-import com.capitalone.ease_qa.ui.atf.selenium.Element;
+import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
 
-public class SeleniumRadioButton extends SeleniumWebElement implements
+public class SeleniumRadioButton extends SeleniumSelectableElement implements
 		SelectableElement {
 
 	public SeleniumRadioButton(ExtUiDriver driver) {
@@ -22,27 +24,29 @@ public class SeleniumRadioButton extends SeleniumWebElement implements
 		setSelector(selector);
 	}
 
-	public Element selectItemByValue(String value) throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean isSelected() throws FixtureError {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public String getText() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Override
 	public List<String> getTextList() throws FixtureError {
-		// TODO Auto-generated method stub
-		return null;
+		final List<String> text= new ArrayList<String>();
+		try{
+		setIgnoreElementIfNotExist(true);
+		setSelectorObject(new MatchCallback() {
+
+			@Override
+			public boolean isMatchFound(Object webObject, String selector) {
+				WebElement element = (WebElement) webObject;
+				text.add(element.getAttribute("value"));
+				return false;
+			}
+		});
+		}finally{
+			setIgnoreElementIfNotExist(false);
+		}
+
+		return text;
+
 	}
 
-	public String getSelectedValue() throws FixtureError {
-		throw new UnImplementedException("Implementation Pending ",null);
-	}
+	
+	
+	
 }

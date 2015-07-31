@@ -12,6 +12,12 @@ public class UnImplementedException extends FixtureError {
 		// TODO Auto-generated constructor stub
 	}
 
+	public UnImplementedException() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 	
 }

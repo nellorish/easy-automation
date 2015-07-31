@@ -28,6 +28,7 @@ import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.ElementTimeoutError;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
 import com.capitalone.ease_qa.ui.atf.error.InvalidSelectorError;
+import com.capitalone.ease_qa.ui.atf.error.UnImplementedException;
 import com.capitalone.ease_qa.ui.atf.selenium.Element;
 import com.capitalone.ease_qa.ui.atf.selenium.ElementFactory;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
@@ -81,6 +82,7 @@ public class SeleniumDriver implements ExtUiDriver {
 		
 	    @Override
 		public WebElement findElement(Element element) throws FixtureError {
+	    	
 			try {
 				return findElement(element.getSelector(),
 						element.isIgnoreElementIfNotExist(), null);
@@ -88,7 +90,7 @@ public class SeleniumDriver implements ExtUiDriver {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+			throw new InvalidSelectorError(null);
 		}
 
 		
@@ -202,7 +204,14 @@ public class SeleniumDriver implements ExtUiDriver {
 
 		@Override
 		public void close() {
-			getWebDriver().close();
+			
+			try {
+				throw new UnImplementedException("Implementation Pending",null);
+			} catch (UnImplementedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//getWebDriver().close();
 		}
 
 		/**
