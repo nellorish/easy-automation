@@ -49,7 +49,8 @@ public interface ExtUiDriver {
 
 	void waitUntil(WaitforConditionTimer callbackCondition)
 		throws ElementTimeoutError;
-    void switchToActiveWindow() throws InterruptedException;
+   
+	void switchToActiveWindow() throws InterruptedException;
 
     void closeActiveWindow();
 

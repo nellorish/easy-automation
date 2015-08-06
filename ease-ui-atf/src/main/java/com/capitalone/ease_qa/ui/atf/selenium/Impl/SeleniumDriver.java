@@ -9,8 +9,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -23,6 +21,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ByIdOrName;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.ElementTimeoutError;
@@ -38,9 +38,9 @@ public class SeleniumDriver implements ExtUiDriver {
 
 
 	    private final Logger LOG = LoggerFactory.getLogger(SeleniumDriver.class);
-		private final static int MAX_RETRY = 200;
+		private final static int MAX_RETRY = 2000;
 		private final static int GRACE_RETRY = 10;
-		private final static int POLLING_INTERVAL_MILLI_SEC = 15;// 15*500=7500=7.5sec
+		private final static int POLLING_INTERVAL_MILLI_SEC = 10;// 15*500=7500=7.5sec
 		private final WebDriver m_webDriver;
 		private String m_defaultFileResourceLocation;
 
@@ -105,11 +105,15 @@ public class SeleniumDriver implements ExtUiDriver {
 
 			Object element = null;
 			int retryCount = 0;
+			long diff_milles=0;
+			 Date seconds = new Date();
+			
 			while (retryCount <= MAX_RETRY) {
-
+                   retryCount++;
 				try {
 
 					if (callBack == null) {
+						System.out.println("@@@@@@Retry Count****"+retryCount);
 						element = getElement(selector);
 					} else {
 						List elements = getElements(selector);
@@ -131,14 +135,9 @@ public class SeleniumDriver implements ExtUiDriver {
 				if ((element != null) || (callBack != null)) {
 					break;
 				} else {
-					if ((ignoreIfNotExist) && (retryCount >= GRACE_RETRY)) {
+					diff_milles = new Date().getTime()/1000 % 60 - seconds.getTime()/1000 % 60;
+					if ((ignoreIfNotExist)|| (diff_milles >= POLLING_INTERVAL_MILLI_SEC)) {
 						break;
-					}
-					retryCount++;
-					try {
-						Thread.sleep(POLLING_INTERVAL_MILLI_SEC);
-					} catch (InterruptedException e) {
-						
 					}
 				}
 			}
@@ -159,8 +158,8 @@ public class SeleniumDriver implements ExtUiDriver {
 			return (WebElement) element;
 		}
 
-          protected Object getElement(String selector) {
-			return getWebDriver().findElement(getBy(selector));
+     protected Object getElement(String selector) {
+     return getWebDriver().findElement(getBy(selector));
 		}
 
 		@SuppressWarnings("rawtypes")

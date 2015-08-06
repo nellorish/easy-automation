@@ -72,10 +72,7 @@ public class SeleniumWebElement implements Element{
 					matchElement.toString()));
 		}
 	}
-
-	
-
-	@Override
+   @Override
 	public void clear() throws FixtureError {
 		getSelectorObject().clear();
 	}
@@ -136,9 +133,7 @@ public class SeleniumWebElement implements Element{
 	public ExtUiDriver getDriver() {
 		return m_driver;
 	}
-
-
-	
+   
 	@Override
 	public void click() throws FixtureError {
 		

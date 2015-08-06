@@ -26,8 +26,8 @@ public class SeleniumWebPage extends SeleniumWebElement implements WebPage {
 	
 	@Override
 	public void maximizeWindow() {
-		// TODO Auto-generated method stub
 		
+		getInternalDriver().manage().window().maximize();
 	}
 
 	@Override
