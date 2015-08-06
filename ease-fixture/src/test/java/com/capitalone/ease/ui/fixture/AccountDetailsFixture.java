@@ -5,6 +5,7 @@ import java.util.List;
 import com.capitalone.ease.ui.pages.AccountDetailsPage;
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
+import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
 import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 
 public class AccountDetailsFixture {
@@ -42,8 +43,44 @@ public class AccountDetailsFixture {
 		return getAccountDetailsPage().getTransactionsList().getList();
 	}
 
-	public boolean isAccountDetailsPage() {
-		// TODO Auto-generated method stub
-		return true;
+	public boolean isAccountDetailsPage() throws FixtureError {
+		ActionElement element = getAccountDetailsPage().getViewDetailsHyperLink();
+		return element.isElementExists();
 	}
+	
+	//** View Details Modal Actions Go here 
+	
+    public String getAccountNumberOnViewDetailsModal() throws FixtureError{
+		return getAccountDetailsPage().getAccountNumberOnViewDetailsModal().getText();
+	}
+    
+    public String getAccountNicknameOnViewDetails() throws FixtureError{
+    	return getAccountDetailsPage().getAccountNickNameOnViewDetails().getText();
+    }
+    
+    public String getRoutingNumberOnViewDetailsModal() throws FixtureError{
+    	return getAccountDetailsPage().getAccountRoutingNumberOnViewDetials().getText();
+    }
+    
+    public String getPrimaryAccountNameOnViewDetailsPage() throws FixtureError{
+    	
+    	return getAccountDetailsPage().getPrimaryAccountHolderNameOnViewDetials().getText();
+    }
+    
+    public String getAnnualAPROnViewDetails() throws FixtureError{
+    	return getAccountDetailsPage().getCurrentAPYOnViewDetails().getText();
+    }
+    
+    public String getMonthsInterestOnViewDetails() throws FixtureError{
+    	return getAccountDetailsPage().getCurrentInterestOnViewDetails().getText();
+    }
+    
+    public String getYearlyInterestOnViewDetails() throws FixtureError{
+    	return getAccountDetailsPage().getCurrentYearInterestOnViewDetails().getText();
+    }
+    
+    public String getAccountBalanceOnViewDetails() throws FixtureError{
+    	return getAccountDetailsPage().getAccountBalanceOnViewDetials().getText();
+    }
+
 }

@@ -16,6 +16,13 @@ public class AccountSummaryPage {
 	return m_driver.getElementFactory().createButton("class:atddAccountType");
 	}
 	
-
+	public ActionElement getSavingAccountTitle(){
+		
+		return m_driver.getElementFactory().createButton("");
+	}
 	
+	public ActionElement getBankTileOnNumber(String titleNumber){
+		
+		return m_driver.getElementFactory().createButton("xpath://ul[@id='summaryParent']/li["+titleNumber+"]");
+	}
 }

@@ -16,12 +16,11 @@ import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 import com.capitalone.ease_qa.ui.atf.selenium.WaitforConditionTimer;
 
 
-
-
-
 public class CapitalOneLoginTest  {
 	
 	private ExtUiDriver driver;
+	
+	
 	
     @Before
 	public void intializrDriver() throws Exception{
@@ -31,10 +30,12 @@ public class CapitalOneLoginTest  {
 	@Test
 	public void doLogin() throws Exception{
 	    driver=SessionManager.getInstance().getNewSession("client","chrome.properties");
-	    driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.capitalone.com/");
+	    //driver.getElementFactory().createWebPage().maximizeWindow();
+	    
+	    driver.eval("window.resizeTo(1024, 768);");
+	    driver.getElementFactory().createWebPage().goToPage("http://awseasedev14web1.kdc.capitalone.com:8080");
 	    //driver.pauseFor(2);
 	    driver.waitUntil(new WaitforConditionTimer() {
-			
 			@Override
 			public boolean ensure() {
 				TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
@@ -51,9 +52,12 @@ public class CapitalOneLoginTest  {
 	   
 	   // System.out.println(" Print the text on Login "+element.getText());
 	   final LoginPageFixture login = new LoginPageFixture(driver);
-	    login.enterUsername("ease_checking360");
+	    login.enterUsername("QA0_Chk458202779");
 	    login.enterPassword("abcd12345");
+	   
+	    //wait for the Login button to be enabled
 	    driver.waitUntil(new WaitforConditionTimer() {
+	    	@Override
 			public boolean ensure() {
 				try {
 					ActionElement element = driver.getElementFactory().createButton("login-start-button");
@@ -79,7 +83,9 @@ public class CapitalOneLoginTest  {
 	    //driver.pauseFor(10);
       assertEquals("EASE | Account Summary", login.getTitle());
       
-      driver.getElementFactory().createActionElement("class:atddAccountType").click(); 
+      driver.getElementFactory().createButton("xpath://ul[@id='summaryParent']/li["+"3"+"]").click();
+      
+     // driver.getElementFactory().createActionElement("class:atddAccountType").click(); 
       
       driver.waitUntil(new WaitforConditionTimer() {
 		
@@ -95,10 +101,10 @@ public class CapitalOneLoginTest  {
 			return false;
 		}
 	});
-      driver.windowScroll(0,1400);
+      //driver.windowScroll(0,1400);
      // driver.windowScroll(600,0);
       //driver.windowScroll(0,300);
-     // driver.getElementFactory().createHyperLink("viewDetailLink").click();
+      driver.getElementFactory().createHyperLink("viewDetailLink").click();
       
       
       //driver.switchToActiveWindow();
@@ -138,8 +144,8 @@ public class CapitalOneLoginTest  {
 //		}
 //	});
 //      
-//     driver.getElementFactory().createButton("class:close-dialog").click();
-//      driver.getElementFactory().createButton("class:back-to-summary").click();
+       driver.getElementFactory().createButton("class:close-dialog").click();
+       driver.getElementFactory().createButton("class:back-to-summary").click();
 //      Assert.assertEquals("EASE | Account Summary",login.getTitle());
       
 	}

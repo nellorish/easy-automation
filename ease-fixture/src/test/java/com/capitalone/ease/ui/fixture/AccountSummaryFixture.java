@@ -25,11 +25,21 @@ public class AccountSummaryFixture {
 		getAccountSummaryPage().getCheckingAccountTitle().click();
 	}
 
-	public boolean isAccountSummary() {
-		// TODO Auto-generated method stub
-		return false;
+	/**
+	 * Lets you Click on the Position Number of the Title instead of the Product Name , Since IDS and
+	 * Class name can`t be used.
+	 * 
+	 * Ex:     
+	 * 
+	 *    [Position 1]  [Position 2]
+	 *    [Position 3]  [Position 4]         
+	 * 
+	 * @param titleno
+	 * @throws FixtureError
+	 */
+	public void clickOnPositionNumberofTilte(String titleno) throws FixtureError{
+		 getAccountSummaryPage().getBankTileOnNumber(titleno);
 	}
-	
 	
 	
 }

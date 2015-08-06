@@ -14,7 +14,7 @@ public class LoginPage {
 	
 	
 	public TextElement getUsernameTextBox(){
-		return driver.getElementFactory().createTextElement("uname");
+		return driver.getElementFactory().createTextElement("unam");
 	}
     
 	public TextElement getPasswordTextBox(){
