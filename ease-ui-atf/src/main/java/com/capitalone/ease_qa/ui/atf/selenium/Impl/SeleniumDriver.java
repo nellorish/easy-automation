@@ -113,7 +113,6 @@ public class SeleniumDriver implements ExtUiDriver {
 				try {
 
 					if (callBack == null) {
-						System.out.println("@@@@@@Retry Count****"+retryCount);
 						element = getElement(selector);
 					} else {
 						List elements = getElements(selector);
@@ -297,7 +296,7 @@ public class SeleniumDriver implements ExtUiDriver {
 			getWebDriver().navigate().refresh();
 		}
 
-			@Override
+		@Override
 		public void waitUntil(final WaitforConditionTimer callbackCondition)
 				throws ElementTimeoutError {
 
@@ -306,7 +305,7 @@ public class SeleniumDriver implements ExtUiDriver {
 		}
 
 		protected void waitUntil(int timeout,
-				final WaitforConditionTimer callbackCondition)
+				 final WaitforConditionTimer callbackCondition)
 				throws ElementTimeoutError {
 			Date time = new Date();
 			long diffInMillies;
@@ -365,8 +364,13 @@ public class SeleniumDriver implements ExtUiDriver {
 		}
 
 		@Override
-		public void pauseFor(int sec) throws InterruptedException {
-			// TODO Auto-generated method stub
+		public void pauseFor(int sec) {
+			try {
+				Thread.sleep(sec*1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 
@@ -399,6 +403,13 @@ public class SeleniumDriver implements ExtUiDriver {
 			m_defaultFileResourceLocation = path;
 
 		}
+		
+		@Override
+		public void maximizeWindow(){
+			getWebDriver().manage().window().maximize();
+		}
+
+
 
 		
 //

@@ -13,16 +13,32 @@ public class AccountSummaryPage {
 
 	public ActionElement getCheckingAccountTitle(){
 		
-	return m_driver.getElementFactory().createButton("class:atddAccountType");
+	return m_driver.getElementFactory().createButton("class:_lob_DDA360");
+	
+	
 	}
 	
 	public ActionElement getSavingAccountTitle(){
 		
-		return m_driver.getElementFactory().createButton("");
+		return m_driver.getElementFactory().createButton("class:_lob_SA360");
 	}
 	
 	public ActionElement getBankTileOnNumber(String titleNumber){
 		
-		return m_driver.getElementFactory().createButton("xpath://ul[@id='summaryParent']/li["+titleNumber+"]");
+		return m_driver.getElementFactory().createButton("class:_lob_DDA360");
+	}
+	
+	public String getAccountSummaryPageTitle(){
+		
+		return m_driver.getElementFactory().createWebPage().browserCaption();
+	}
+	
+	public ActionElement getHeaderDropDown(){
+		return m_driver.getElementFactory().createButton("xpath://*[@id='headerEaseC1']/div/ul/li/ul/li[2]/a");
+	}
+	
+	public ActionElement getSignOutLink(){
+		//return m_driver.getElementFactory().createHyperLink("xpath://*[@id='name_drop']/li[5]/a");
+		return m_driver.getElementFactory().createHyperLink("xpath://a[@href='#/login']");
 	}
 }

@@ -33,14 +33,14 @@ public class SeleniumTextReaderTest {
 
 	@Test
 	public void testCheckGetSelector() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		Element divTag = new SeleniumTextReader(m_driver, "css:div.username_display");
 		Assert.assertNotNull(divTag.getSelector(), "css:div.username_display");
 	}
 
 	@Test
 	public void testRead_A_Div_Text_withCss_Selector() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement divTag = new SeleniumTextReader(m_driver, "css:div.username_display");
 		Assert.assertNotNull(divTag.getSelectorObject());
 		Assert.assertEquals(divTag.getText(), "ease_checking360");
@@ -49,21 +49,21 @@ public class SeleniumTextReaderTest {
 
 	@Test
 	public void testRead_A_Div_Text_withClassName_Selector() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement divTag = new SeleniumTextReader(m_driver, "class:username_display");
 		Assert.assertEquals(divTag.getText(), "ease_checking360");
 	}
 
 	@Test
 	public void testRead_A_Div_Text_containText() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement divTag = new SeleniumTextReader(m_driver, "class:username_display");
 		Assert.assertTrue(divTag.containsText("checking360"));
 	}
 
 	@Test
 	public void testIgnoreErrorOnFind() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		Element divTag = new SeleniumTextReader(m_driver, "class:username1234");
 		divTag.setIgnoreElementIfNotExist(true);
 		Assert.assertNull(divTag.getSelectorObject());
@@ -72,7 +72,7 @@ public class SeleniumTextReaderTest {
 	
 	@Test
 	public void testWaitUntilToFindElement() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		Element divTag = new SeleniumTextReader(m_driver, "css:div.username_display");
 		//divTag.pauseFor(3);
 		Assert.assertNotNull(divTag.getSelectorObject());
@@ -81,7 +81,7 @@ public class SeleniumTextReaderTest {
 
 	@Test
 	public void testGetTexts() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement reader = new SeleniumTextReader(m_driver, "css:div#rn_Multiline2WithAnsVars_6_Content ol > li > span.rn_Element2");
 		Assert.assertEquals(reader.getTextList().size(), 3);
 		Assert.assertEquals(reader.getTextList().get(2), "Temporary authorizations can remain on your account for up to 10 days. In the event of an error, only the merchant can remove the authorization.");
@@ -94,14 +94,14 @@ public class SeleniumTextReaderTest {
 
 	@Test
 	public void testGetFormattedText() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement e = new SeleniumElementFactory(m_driver).createTextReader("testPara");
 		Assert.assertEquals(e.getFormattedText(), "This text is to Test the Formatted text tag");
 	}
 	
 	@Test
 	public void testIsElement_Visible() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		TextElement divTag = new SeleniumTextReader(m_driver, "class:username_display");
 		Assert.assertTrue(divTag.isElementVisible());
 	}

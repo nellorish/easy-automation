@@ -13,11 +13,12 @@ public class AccountDetailsPage {
 	}
 
     public ActionElement getViewDetailsHyperLink(){
-		return m_driver.getElementFactory().createHyperLink("viewDetailLink");
+		//return m_driver.getElementFactory().createHyperLink("viewDetailLink"); //a[@id='viewDetailLink']
+		return m_driver.getElementFactory().createHyperLink("xpath://a[@id='viewDetailLink']");
 	}
 	
 	public TextElement getAccountDetailsAreaOnHero(){
-		return m_driver.getElementFactory().createTextReader("class=title");
+		return m_driver.getElementFactory().createTextReader("xpath://li[@class='title']");
 	}
 	
 	public TextElement getAccountNumberOnHero(){
@@ -36,8 +37,24 @@ public class AccountDetailsPage {
 	}
 	
 	public TextElement getTransactionsList(){
-		return m_driver.getElementFactory().createTextElement("xpath://ul[class='transactionList']/li");
+		return m_driver.getElementFactory().createTextElement("xpath://ul[@class='transactionList']/li");
 	}
+	
+	public ActionElement getCaroselRightButton(){
+		//return m_driver.getElementFactory().createActionElement("xpath://button[@alt:'Next account']"); //*[@id="mainAccountDetail"]/div[4]/button
+		return m_driver.getElementFactory().createActionElement("xpath://*[@id='mainAccountDetail']/div[4]/button");	
+	}
+	
+	public TextElement getTypeofAccount(){
+		return m_driver.getElementFactory().createTextReader("class:title");
+	}
+	
+	public ActionElement getBackButtonOnAccountDetails(){
+		return m_driver.getElementFactory().createButton("xpath://*[@id='headerEaseC1']/div/div[1]/button");
+		//return m_driver.getElementFactory().createButton("xpath://button[@class='back-to-summary']");
+	}
+	
+	
 	
 	
 	
@@ -73,6 +90,11 @@ public class AccountDetailsPage {
 	public TextElement getCurrentAPYOnViewDetails(){
 		return m_driver.getElementFactory().createTextReader("CurrentAPY");
 	}
-
+    
+	public ActionElement getCloseButtonOnViewDetails(){
+		//return m_driver.getElementFactory().createButton("class:close-dialog"); //button[@class='close-dialog']
+		//return m_driver.getElementFactory().createButton("xpath://button[@class='close-dialog']"); //*[@id="transactions"]/div[2]/div/div[2]/button
+		return m_driver.getElementFactory().createButton("xpath://*[@id='transactions']/div[2]/div/div[2]/button");
+	}
 
 }

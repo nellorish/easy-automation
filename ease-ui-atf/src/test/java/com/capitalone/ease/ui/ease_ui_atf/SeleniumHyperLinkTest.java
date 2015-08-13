@@ -4,8 +4,10 @@
 package com.capitalone.ease.ui.ease_ui_atf;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;

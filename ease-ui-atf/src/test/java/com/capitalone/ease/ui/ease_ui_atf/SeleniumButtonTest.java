@@ -56,6 +56,7 @@ public class SeleniumButtonTest {
 	
 	private TextElement defaultTextBox() throws FixtureError{
 		WebPage page = new SeleniumWebPage(m_driver);
+		System.out.println("Location of the file path"+m_driver.getLocalResource("UnitTestPage.html"));
 		page.goToPage(m_driver.getLocalResource("UnitTestPage.html"));
 		TextElement textBox = new SeleniumTextBox(m_driver, "username_id");
 		textBox.setText("testing button");

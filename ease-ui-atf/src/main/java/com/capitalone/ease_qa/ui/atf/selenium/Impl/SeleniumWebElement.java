@@ -139,6 +139,8 @@ public class SeleniumWebElement implements Element{
 		
 		getSelectorObject().click();
     }
+	
+	
 
 	@Override
 	public boolean isElementVisible() throws FixtureError {

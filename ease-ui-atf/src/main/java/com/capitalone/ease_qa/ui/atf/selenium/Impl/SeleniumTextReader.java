@@ -72,9 +72,8 @@ public class SeleniumTextReader extends SeleniumWebElement implements TextElemen
 		LOG.debug("Entering into the getList method");
 		final List<TextElement> items = new ArrayList<TextElement>();
 		m_driver.findElement(this, new MatchCallback() {
-
-	@Override
-	public boolean isMatchFound(Object webObject, String selector) {
+            @Override
+	          public boolean isMatchFound(Object webObject, String selector) {
 				TextElement element = new SeleniumTextReader(m_driver);
 				element.setSelectorObject(webObject);
 				items.add(element);

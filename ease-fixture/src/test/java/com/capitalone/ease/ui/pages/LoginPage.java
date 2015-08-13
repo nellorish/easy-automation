@@ -14,7 +14,7 @@ public class LoginPage {
 	
 	
 	public TextElement getUsernameTextBox(){
-		return driver.getElementFactory().createTextElement("unam");
+		return driver.getElementFactory().createTextElement("uname");
 	}
     
 	public TextElement getPasswordTextBox(){
@@ -30,6 +30,9 @@ public class LoginPage {
 		return driver.getElementFactory().createButton("class:bal");
 	}
 	
-	
+	public String getLoginPageTitle(){
+		
+		return driver.getElementFactory().createWebPage().browserCaption();
+	}
 	
 }

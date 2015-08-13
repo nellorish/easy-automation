@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
+import com.capitalone.ease_qa.ui.atf.error.UnImplementedException;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
 
@@ -45,8 +46,4 @@ public class SeleniumRadioButton extends SeleniumSelectableElement implements
 		return text;
 
 	}
-
-	
-	
-	
 }

@@ -54,8 +54,7 @@ public class SeleniumDropDown extends SeleniumWebElement implements SelectableEl
 	
 	@Override
 	public boolean isSelected() throws FixtureError {
-	
-		List<WebElement> options = getOptionList();
+	 List<WebElement> options = getOptionList();
 		for (WebElement option : options) {
 
 			if (option.isSelected()) {

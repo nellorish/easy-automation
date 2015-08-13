@@ -30,7 +30,7 @@ public class SeleniumCheckBoxTest {
 	@Before
 	public void setUpClass() throws FixtureError {
 		m_driver = TestDriver.getDriver();
-		gotoTestPage();
+		
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class SeleniumCheckBoxTest {
 
 	@Test
 	public void testOptionMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement checkBox = new SeleniumCheckBox(m_driver, "alert");
 		checkBox.selectItemByValue("true");
 		Assert.assertTrue(checkBox.isSelected());
@@ -52,14 +52,14 @@ public class SeleniumCheckBoxTest {
 
 	@Test(expected = MatchValueError.class)
 	public void testOptionNonMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement checkBox = new SeleniumCheckBox(m_driver, "alert");
 		checkBox.selectItemByValue("false");
 	}
 
 	@Test
 	public void testSelectItemInsanceType() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement checkBox = new SeleniumCheckBox(m_driver, "alert");
 		Assert.assertTrue(checkBox.selectItemByValue("true") instanceof Element);
 	}
@@ -71,7 +71,7 @@ public class SeleniumCheckBoxTest {
 
 	@Test(expected = UnImplementedException.class)
 	public void testGetTextList() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement checkBox = new SeleniumCheckBox(m_driver, "alert");
 		checkBox.getTextList();
 	}

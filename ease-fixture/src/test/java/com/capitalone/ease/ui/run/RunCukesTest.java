@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/features/capitalonelogin.feature", 
+@CucumberOptions(features="src/test/resources/features", 
 tags="@demo",
 glue = { "com.capitalone.ease.ui.stepdefs","com.capitalone.ease.ui.pages" })
 public class RunCukesTest {

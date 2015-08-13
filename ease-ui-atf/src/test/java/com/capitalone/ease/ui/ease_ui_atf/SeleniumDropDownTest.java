@@ -1,6 +1,7 @@
 package com.capitalone.ease.ui.ease_ui_atf;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,55 +21,42 @@ import com.capitalone.ease_qa.ui.atf.selenium.Impl.SeleniumWebPage;
 public class SeleniumDropDownTest {
 
 
-	private static ExtUiDriver m_driver;
+	private ExtUiDriver m_driver;
 
-	@BeforeClass
-	public static void setUpClass() throws FixtureError {
-		m_driver = TestDriver.getDriver();
-		WebPage page = new SeleniumWebPage(m_driver);
-		page.goToPage(m_driver.getLocalResource("UnitTestPage.html"));
-	}
 
 	@Test
 	public void testFindOptionByValue() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement dropdown = new SeleniumDropDown(m_driver, "myDropdown");
 		Assert.assertNotNull(dropdown.selectItemByValue("item1"));
 	}
 
 	@Test
 	public void testOptionMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
+		
 		SelectableElement dropdown = new SeleniumDropDown(m_driver, "myDropdown");
 		dropdown.selectItemByValue("item1");
 		Assert.assertTrue(dropdown.isSelected());
 	}
 
-    @Test(expected = UnImplementedException.class)
-	public void testOptionGetValueNoMatch() throws FixtureError {
-		//gotoTestPage();
-		SelectableElement radioGroup = new SeleniumRadioButton(m_driver, "nothing");
-		radioGroup.getSelectedValue();	 		
-	}
-	
-	
 	@Test(expected = MatchValueError.class)
 	public void testOptionNonMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement dropdown = new SeleniumElementFactory(m_driver).createDropDown("myDropdown");
 		dropdown.selectItemByValue("item3");
 	}
 
 	@Test
 	public void testSelectItemInsanceType() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement dropdown = new SeleniumDropDown(m_driver, "myDropdown");
 		Assert.assertTrue(dropdown.selectItemByValue("item1") instanceof Element);
 	}
 
 	@Test
 	public void testElementNotExist() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 
 		SelectableElement dropdown = new SeleniumElementFactory(m_driver).createDropDown("testme");
 
@@ -78,7 +66,7 @@ public class SeleniumDropDownTest {
 	}
 	@Test(expected = MatchValueError.class)
 	public void testElementExistOptionnotMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement dropdown = new SeleniumElementFactory(m_driver)
 				.createDropDown("myDropdown");
 		Assert.assertTrue(dropdown.isElementExists());
@@ -87,7 +75,7 @@ public class SeleniumDropDownTest {
 	}
 	@Test(expected = MatchValueError.class)
 	public void testElementNotExistOptionMatch() throws FixtureError {
-		//gotoTestPage();
+		gotoTestPage();
 		SelectableElement dropdown = new SeleniumElementFactory(m_driver)
 				.createDropDown("testme");
 		Assert.assertFalse(dropdown.isElementExists());
@@ -95,14 +83,14 @@ public class SeleniumDropDownTest {
 		Assert.assertNull(e);
 	}
 	private void gotoTestPage() {
+		m_driver = TestDriver.getDriver();
 		WebPage page = new SeleniumWebPage(m_driver);
 		page.goToPage(m_driver.getLocalResource("UnitTestPage.html"));
 	}
 	
 	@After
-	public void shutDowndriver(){
+	public void shutdownDriver(){
 		m_driver.shutdown();
 	}
-
 
 }

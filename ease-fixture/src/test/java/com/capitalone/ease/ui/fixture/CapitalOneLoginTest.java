@@ -3,6 +3,8 @@ package com.capitalone.ease.ui.fixture;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,20 +37,20 @@ public class CapitalOneLoginTest  {
 	    driver.eval("window.resizeTo(1024, 768);");
 	    driver.getElementFactory().createWebPage().goToPage("http://awseasedev14web1.kdc.capitalone.com:8080");
 	    //driver.pauseFor(2);
-	    driver.waitUntil(new WaitforConditionTimer() {
-			@Override
-			public boolean ensure() {
-				TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
-				// TODO Auto-generated method stub
-				try {
-					return element.isElementExists();
-				} catch (FixtureError e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return false;
-			}
-		});
+//	    driver.waitUntil(new WaitforConditionTimer() {
+//			@Override
+//			public boolean ensure() {
+//				TextElement element= driver.getElementFactory().createTextReader("xpath://*[@id='login-page']/div[1]/h1");
+//				// TODO Auto-generated method stub
+//				try {
+//					return element.isElementExists();
+//				} catch (FixtureError e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				return false;
+//			}
+//		});
 	   
 	   // System.out.println(" Print the text on Login "+element.getText());
 	   final LoginPageFixture login = new LoginPageFixture(driver);
@@ -56,56 +58,63 @@ public class CapitalOneLoginTest  {
 	    login.enterPassword("abcd12345");
 	   
 	    //wait for the Login button to be enabled
-	    driver.waitUntil(new WaitforConditionTimer() {
-	    	@Override
-			public boolean ensure() {
-				try {
-					ActionElement element = driver.getElementFactory().createButton("login-start-button");
-					String flag = element.getHtmlAttribute("aria-disabled");
-					System.out.println(flag);
-					element.click();
-					return flag.equalsIgnoreCase("false");
-				} catch (FixtureError e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				// TODO Auto-generated method stub
-				return false;
-			}
-		});
+//	    driver.waitUntil(new WaitforConditionTimer() {
+//	    	@Override
+//			public boolean ensure() {
+//				try {
+//					ActionElement element = driver.getElementFactory().createButton("login-start-button");
+//					String flag = element.getHtmlAttribute("aria-disabled");
+//					System.out.println(flag);
+//					element.click();
+//					return flag.equalsIgnoreCase("false");
+//				} catch (FixtureError e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//		});
 	    login.clickLogin();
+//	    driver.waitUntil(new WaitforConditionTimer() {
+//			public boolean ensure() {
+//			return login.getTitle().equalsIgnoreCase("EASE | Account Summary");
+//			}
+//		});
+	    
+	    //driver.pauseFor(10);
+	    
 	    driver.waitUntil(new WaitforConditionTimer() {
 			public boolean ensure() {
 			return login.getTitle().equalsIgnoreCase("EASE | Account Summary");
 			}
 		});
-	    
-	    //driver.pauseFor(10);
       assertEquals("EASE | Account Summary", login.getTitle());
       
-      driver.getElementFactory().createButton("xpath://ul[@id='summaryParent']/li["+"3"+"]").click();
+      driver.getElementFactory().createButton("class:_lob_DDA360").click();
       
      // driver.getElementFactory().createActionElement("class:atddAccountType").click(); 
       
-      driver.waitUntil(new WaitforConditionTimer() {
-		
-		@Override
-		public boolean ensure() {
-			// TODO Auto-generated method stub
-			try {
-				return driver.getElementFactory().createHyperLink("viewDetailLink").isElementExists();
-			} catch (FixtureError e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return false;
-		}
-	});
+//      driver.waitUntil(new WaitforConditionTimer() {
+//		
+//		@Override
+//		public boolean ensure() {
+//			// TODO Auto-generated method stub
+//			try {
+//				return driver.getElementFactory().createHyperLink("viewDetailLink").isElementExists();
+//			} catch (FixtureError e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			return false;
+//		}
+//	});
       //driver.windowScroll(0,1400);
      // driver.windowScroll(600,0);
       //driver.windowScroll(0,300);
-      driver.getElementFactory().createHyperLink("viewDetailLink").click();
+     // driver.getElementFactory().createHyperLink("viewDetailLink").click();
       
+    List<TextElement> elements = driver.getElementFactory().createTextReader("xpath://ul[@class='transactionsList']/li").getList();    
       
       //driver.switchToActiveWindow();
       //driver.windowScroll(250,0);
@@ -144,8 +153,8 @@ public class CapitalOneLoginTest  {
 //		}
 //	});
 //      
-       driver.getElementFactory().createButton("class:close-dialog").click();
-       driver.getElementFactory().createButton("class:back-to-summary").click();
+       //driver.getElementFactory().createButton("class:close-dialog").click();
+      // driver.getElementFactory().createButton("class:back-to-summary").click();
 //      Assert.assertEquals("EASE | Account Summary",login.getTitle());
       
 	}

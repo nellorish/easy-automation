@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;

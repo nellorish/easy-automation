@@ -30,7 +30,7 @@ public interface ExtUiDriver {
 	
 	void shutdown();
 
-	@Deprecated
+	
 	void pauseFor(int sec) throws InterruptedException;
 
 	@Deprecated
@@ -67,6 +67,9 @@ public interface ExtUiDriver {
 	void setLocalResourcePath(String string);
 
 	String getLocalResource(String fileName);
+
+	void maximizeWindow();
+	
 	
 
 }

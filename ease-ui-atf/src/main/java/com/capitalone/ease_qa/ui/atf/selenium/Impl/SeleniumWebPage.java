@@ -15,8 +15,7 @@ public class SeleniumWebPage extends SeleniumWebElement implements WebPage {
 	public String goToPage(String url) {
 		getInternalDriver().get(url);
           return browserCaption();
-          
-	}
+    }
 
 	public String browserCaption() {
 		
@@ -28,6 +27,7 @@ public class SeleniumWebPage extends SeleniumWebElement implements WebPage {
 	public void maximizeWindow() {
 		
 		getInternalDriver().manage().window().maximize();
+	
 	}
 
 	@Override
