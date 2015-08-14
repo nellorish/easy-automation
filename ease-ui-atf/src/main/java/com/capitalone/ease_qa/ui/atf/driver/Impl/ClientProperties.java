@@ -105,7 +105,7 @@ public class ClientProperties {
         proxyHttps = load("proxy.https", null, null);
 
   
-        os = load("os", null, null);
+        os = load("os", "mac", null);
         osVersion = load("os.version", null, null);
         maxPageWaitString = load("maxPageWait", "30000",
                 "Standard maximum page wait timeout throughout your automation project (in milliseconds)");
@@ -162,7 +162,7 @@ public class ClientProperties {
         }
 
           gridUrl = load("grid.url",
-                "http://username-string:access-key-string@ondemand.saucelabs.com:80/wd/hub",
+                "http://geldhaus_team:68b692e4-4547-49ee-a200-e79d2eb8b7a8@ondemand.saucelabs.com:80/wd/hub",
                 "Sauce labs URL (e.g. 'http://username-string:access-key-string@ondemand.saucelabs.com:80/wd/hub')");
         gridPlatform = load("grid.platform", "Windows 7",
                 "Selenium Grid OS Platform name (e.g. 'Windows 7')");
