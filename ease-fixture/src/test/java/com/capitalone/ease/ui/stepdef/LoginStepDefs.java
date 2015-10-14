@@ -1,8 +1,6 @@
 package com.capitalone.ease.ui.stepdef;
 
 import org.junit.Assert;
-import org.springframework.context.support.AbstractApplicationContext;
-
 import com.capitalone.ease.ui.fixture.AccountDetailsFixture;
 import com.capitalone.ease.ui.fixture.AccountSummaryFixture;
 import com.capitalone.ease.ui.fixture.LoginPageFixture;
@@ -24,7 +22,7 @@ public class LoginStepDefs {
 	private AccountDetailsFixture accountDetails;
 	private LoginPageFixture login;
 	private AccountDetailsPage accountDetailsPage;
-	public AbstractApplicationContext context = null;
+	//public AbstractApplicationContext context = null;
 	private static final String QA ="https://ease-qa6.kdc.capitalone.com/";
 	private static final String DEV="http://awseasedev14web1.kdc.capitalone.com:8080/ease-ui/#/login";
 	

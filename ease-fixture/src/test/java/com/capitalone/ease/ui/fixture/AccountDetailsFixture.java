@@ -25,6 +25,7 @@ public class AccountDetailsFixture {
 	}
 	
 	public void clickOnViewDetails() throws FixtureError{
+		
 	//	getAccountDetailsPage().getViewDetailsHyperLink().click();
 		driver.waitUntil(new WaitforConditionTimer() {
 			@Override

@@ -165,12 +165,12 @@ public class DefaultSessionFactory implements SessionFactory {
 
             // move browser windows to specific position. It's useful for
             // debugging...
-            final int browserInitPositionX = properties.getBrowserInitPositionX();
-            final int browserInitPositionY = properties.getBrowserInitPositionY();
-            if (browserInitPositionX != 0 || browserInitPositionY != 0) {
-                wd.manage().window().setSize(new Dimension(1280, 1024));
-                wd.manage().window().setPosition(new Point(browserInitPositionX, browserInitPositionY));
-            }
+//            final int browserInitPositionX = properties.getBrowserInitPositionX();
+//            final int browserInitPositionY = properties.getBrowserInitPositionY();
+//            if (browserInitPositionX != 0 || browserInitPositionY != 0) {
+//                wd.manage().window().setSize(new Dimension(1280, 1024));
+//                wd.manage().window().setPosition(new Point(browserInitPositionX, browserInitPositionY));
+//            }
         
             selenium = new SeleniumDriver(wd);
             return selenium;

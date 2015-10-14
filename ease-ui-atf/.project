@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>resource</name>
+			<type>2</type>
+			<location>/Users/gtg716/localrepo/ease-ui-atf/ease-ui-atf/src/test/resource</location>
+		</link>
+	</linkedResources>
 </projectDescription>
