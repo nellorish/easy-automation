@@ -30,11 +30,17 @@ public class LoginStepDefs {
 	 
 	 public LoginStepDefs() throws Exception{
 	  
-		 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+		// driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
 		 login =new LoginPageFixture(driver);
 		 accountSummary = new AccountSummaryFixture(driver);
 		 accountDetails = new AccountDetailsFixture(driver);
 		 accountDetailsPage = new AccountDetailsPage(driver);
+	 }
+	 
+	 @Given("^browser to use is \"(.*?)\"$")
+	 public void browser_to_use_is(String arg1) throws Throwable {
+	     // Write code here that turns the phrase above into concrete actions
+	  
 	 }
 	 
 	 @Given("^I`m on the easy login page$")

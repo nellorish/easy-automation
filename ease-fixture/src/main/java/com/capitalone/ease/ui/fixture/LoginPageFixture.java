@@ -49,23 +49,23 @@ public class LoginPageFixture {
 	 public void clickLogin() throws FixtureError{
 		 getLoginPage().submitbutton().click();
 		
-		 driver.waitUntil(new WaitforConditionTimer() {
-			
-			  @Override
-				public boolean ensure() {
-					try {
-						
-						if(!getLoginPage().getLoginPageTitle().equalsIgnoreCase("EASE | Login")){
-						return true;
-						}else{
-							getLoginPage().submitbutton().click();
-						}
-					} catch (FixtureError e) {
-					  
-					}
-				return false;
-				}
-			    });
+//		 driver.waitUntil(new WaitforConditionTimer() {
+//			
+//			  @Override
+//				public boolean ensure() {
+//					try {
+//						
+//						if(!getLoginPage().getLoginPageTitle().equalsIgnoreCase("EASE | Login")){
+//						return true;
+//						}else{
+//							getLoginPage().submitbutton().click();
+//						}
+//					} catch (FixtureError e) {
+//					  
+//					}
+//				return false;
+//				}
+//			    });
 	 }
 	 public void goToBankPage() throws FixtureError{
 		 getLoginPage().getBankTile().click();

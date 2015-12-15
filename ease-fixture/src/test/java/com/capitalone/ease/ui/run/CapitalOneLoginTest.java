@@ -1,4 +1,4 @@
-package com.capitalone.ease.ui.fixture;
+package com.capitalone.ease.ui.run;
 
 
 import static org.junit.Assert.assertEquals;
@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.capitalone.ease.ui.fixture.LoginPageFixture;
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.driver.SessionManager;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
@@ -35,7 +36,7 @@ public class CapitalOneLoginTest  {
 	    //driver.getElementFactory().createWebPage().maximizeWindow();
 	    
 	    driver.eval("window.resizeTo(1024, 768);");
-	    driver.getElementFactory().createWebPage().goToPage("http://awseasedev14web1.kdc.capitalone.com:8080");
+	    driver.getElementFactory().createWebPage().goToPage("https://ease-qamb.kdc.capitalone.com/ease-ui/#/login");
 	    //driver.pauseFor(2);
 //	    driver.waitUntil(new WaitforConditionTimer() {
 //			@Override

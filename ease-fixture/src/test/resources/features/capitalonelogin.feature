@@ -1,5 +1,5 @@
 
-@demo
+@single
 Feature: Sample Login for the UI Driver Demo
 Scenario: Just Login
     Given I`m on the easy login page
