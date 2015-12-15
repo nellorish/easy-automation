@@ -1,5 +1,6 @@
 package com.capitalone.ease_qa.ui.atf.driver.Impl;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,8 @@ import org.apache.commons.configuration.PropertiesConfigurationLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.sourceforge.htmlunit.corejs.javascript.GeneratedClassLoader;
+
 /**
  * Enables storage of and access to driver and browser configuration.
  *
@@ -16,7 +19,7 @@ import org.slf4j.LoggerFactory;
 public class ClientProperties {
     private final Logger logger = LoggerFactory.getLogger(ClientProperties.class);
 
-    private URL client;
+    private InputStream client;
 
     private final PropertiesConfiguration config;
     private final PropertiesConfigurationLayout propertiesConfigurationLayout;
@@ -83,8 +86,10 @@ public class ClientProperties {
     public ClientProperties(String filePath) {
     	
     	
-        URL clientPath = this.getClass().getClassLoader().getResource(filePath);
-        logger.debug("Inside Client Properties"+clientPath);
+       // URL clientPath = this.getClass().getClassLoader().getResource(filePath);
+        
+        InputStream clientPath = this.getClass().getClassLoader().getResourceAsStream(filePath);
+         logger.debug("Inside Client Properties"+clientPath);
         this.config = new PropertiesConfiguration();
         this.config.setDelimiterParsingDisabled(true);
         try {
@@ -349,7 +354,7 @@ public class ClientProperties {
      *
      * @return the URL represented by this {@code ClientProperties}
      */
-    public URL getClient() {
+    public InputStream getClient() {
         return client;
     }
 
