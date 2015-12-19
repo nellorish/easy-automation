@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ease-automation.iml" filepath="$PROJECT_DIR$/ease-automation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ease-fixture/ease-fixture.iml" filepath="$PROJECT_DIR$/ease-fixture/ease-fixture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ease-ui-atf/ease-ui-atf.iml" filepath="$PROJECT_DIR$/ease-ui-atf/ease-ui-atf.iml" />
+    </modules>
+  </component>
+</project>
