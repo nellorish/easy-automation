@@ -50,7 +50,7 @@ public class AccountDetailsPage {
 	}
 	
 	public ActionElement getBackButtonOnAccountDetails(){
-		return m_driver.getElementFactory().createButton("xpath://*[@id='headerEaseC1']/div/div[1]/button");
+		return m_driver.getElementFactory().createButton("xpath://*[@id='headerEaseC1']/div/div/div[1]/button");
 		//return m_driver.getElementFactory().createButton("xpath://button[@class='back-to-summary']");
 	}
 	
@@ -61,14 +61,14 @@ public class AccountDetailsPage {
 	//  Details for the View Details Modal Page Element Start Here
 	
 	public TextElement getAccountNumberOnViewDetailsModal(){
-		return m_driver.getElementFactory().createTextReader("AccountNumber");
+		return m_driver.getElementFactory().createTextReader("accountNumber");
 	}
 	
-	public TextElement getAccountNickNameOnViewDetails(){
-		return m_driver.getElementFactory().createTextReader("NickName");
-	}
+//	public TextElement getAccountNickNameOnViewDetails(){
+//		return m_driver.getElementFactory().createTextReader("NickName");
+//	}
 	public TextElement getAccountRoutingNumberOnViewDetials(){
-		return m_driver.getElementFactory().createTextReader("RoutingNumber");
+		return m_driver.getElementFactory().createTextReader("routingNumber");
 	}
 	
 	public TextElement getAccountBalanceOnViewDetials(){
@@ -76,25 +76,25 @@ public class AccountDetailsPage {
 	}
 	
 	public TextElement getPrimaryAccountHolderNameOnViewDetials(){
-		return m_driver.getElementFactory().createTextReader("PrimaryAccountHolder");
+		return m_driver.getElementFactory().createTextReader("primaryAccountHolder");
 	}
 	
 	public TextElement getCurrentInterestOnViewDetails(){
-		return m_driver.getElementFactory().createTextReader("InterestCurrentMonth");
+		return m_driver.getElementFactory().createTextReader("interestPaidAmountCurrentMonth");
 	}
 	
 	public TextElement getCurrentYearInterestOnViewDetails(){
-		return m_driver.getElementFactory().createTextReader("InterestCurrentYear");
+		return m_driver.getElementFactory().createTextReader("interestCurrentYear");
 	}
 	
 	public TextElement getCurrentAPYOnViewDetails(){
-		return m_driver.getElementFactory().createTextReader("CurrentAPY");
+		return m_driver.getElementFactory().createTextReader("annualPercentageYield");
 	}
     
 	public ActionElement getCloseButtonOnViewDetails(){
 		//return m_driver.getElementFactory().createButton("class:close-dialog"); //button[@class='close-dialog']
 		//return m_driver.getElementFactory().createButton("xpath://button[@class='close-dialog']"); //*[@id="transactions"]/div[2]/div/div[2]/button
-		return m_driver.getElementFactory().createButton("xpath://*[@id='transactions']/div[2]/div/div[2]/button");
+		return m_driver.getElementFactory().createButton("xpath://button[@class='close-dialog']");
 	}
 
 }

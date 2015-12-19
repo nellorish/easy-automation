@@ -34,7 +34,7 @@ public class AccountSummaryPage {
 	}
 	
 	public ActionElement getHeaderDropDown(){
-		return m_driver.getElementFactory().createButton("xpath://*[@id='headerEaseC1']/div/ul/li/ul/li[2]/a");
+		return m_driver.getElementFactory().createButton("xpath://a[@id='profileLink']");
 	}
 	
 	public ActionElement getSignOutLink(){

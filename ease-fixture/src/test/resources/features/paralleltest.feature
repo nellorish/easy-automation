@@ -1,5 +1,5 @@
  
- @demo
+ @firefox
 Feature: Regression End to End Flow
  Scenario Outline: Validate the Account details page Hero section for Checking, Savings, KSA and Money accounts
     Given browser to use is "<browser>"
@@ -19,5 +19,5 @@ Feature: Regression End to End Flow
 
     Examples: 
       |browser| username         | password  | account  | accountNumber | routingNumber | primaryAccountHolderName | APY   | YearInterest | accountType |
-      |chrome| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00% | $2.67        | saving      |
-      |firefox| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00% | $2.67        | saving      |
+      |firefox| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 5.25%| $2.67        | saving      |
+      |firefox| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 5.25%| $2.67        | saving      |mvn

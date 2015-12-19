@@ -363,6 +363,21 @@ public class ClientProperties {
 		return true;
 	}
 
+	public String getFirefoxProfileFolder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getFirefoxProfileFile() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getBinaryPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
 

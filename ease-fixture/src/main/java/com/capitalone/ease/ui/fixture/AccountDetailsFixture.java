@@ -162,9 +162,9 @@ public class AccountDetailsFixture {
 		return getAccountDetailsPage().getAccountNumberOnViewDetailsModal().getText();
 	}
     
-    public String getAccountNicknameOnViewDetails() throws FixtureError{
-    	return getAccountDetailsPage().getAccountNickNameOnViewDetails().getText();
-    }
+//    public String getAccountNicknameOnViewDetails() throws FixtureError{
+//    	return getAccountDetailsPage().getAccountNickNameOnViewDetails().getText();
+//    }
     
     public String getRoutingNumberOnViewDetailsModal() throws FixtureError{
     	return getAccountDetailsPage().getAccountRoutingNumberOnViewDetials().getText();

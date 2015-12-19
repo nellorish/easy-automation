@@ -23,31 +23,57 @@ public class LoginStepDefs {
 	private LoginPageFixture login;
 	private AccountDetailsPage accountDetailsPage;
 	//public AbstractApplicationContext context = null;
-	private static final String QA ="https://ease-qa6.kdc.capitalone.com/";
+	private static final String QA ="https://ease-qamb.kdc.capitalone.com/ease-ui/#/login";
 	private static final String DEV="http://awseasedev14web1.kdc.capitalone.com:8080/ease-ui/#/login";
+	
+	
+	
 	
 	
 	 
 	 public LoginStepDefs() throws Exception{
 	  
 		// driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+//		 login =new LoginPageFixture(driver);
+//		 accountSummary = new AccountSummaryFixture(driver);
+//		 accountDetails = new AccountDetailsFixture(driver);
+//		 accountDetailsPage = new AccountDetailsPage(driver);
+	 }
+	 
+	 @Given("^browser to use is \"(.*?)\"$")
+	 public void browser_to_use_is(String arg1) throws Exception {
+		
+		 if(arg1.equalsIgnoreCase("chrome")){
+			 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+		 }
+		 if(arg1.equalsIgnoreCase("firefox")){
+			 driver = SessionManager.getInstance().getNewSession("client","firefox.properties");
+		 }
+		 
+		 driver.maximizeWindow();
+//		 switch(arg1){
+//		case "chrome" :
+//		 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+//		break;
+//		case"firefox" :
+//			driver = SessionManager.getInstance().getNewSession("client","firefox.properties");
+//		    break;
+//		default :
+//			 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
+//			 break;
+//        }
+		 
 		 login =new LoginPageFixture(driver);
 		 accountSummary = new AccountSummaryFixture(driver);
 		 accountDetails = new AccountDetailsFixture(driver);
 		 accountDetailsPage = new AccountDetailsPage(driver);
 	 }
 	 
-	 @Given("^browser to use is \"(.*?)\"$")
-	 public void browser_to_use_is(String arg1) throws Throwable {
-	     // Write code here that turns the phrase above into concrete actions
-	  
-	 }
-	 
 	 @Given("^I`m on the easy login page$")
 	 public void i_m_on_the_easy_login_page() throws Throwable {
 		 driver.maximizeWindow();
 	     WebPage page = driver.getElementFactory().createWebPage();
-	     page.goToPage(DEV); 
+	     page.goToPage(QA); 
 	 }
 
 	 @When("^Enter the Username \"(.*?)\" and password \"(.*?)\"$")

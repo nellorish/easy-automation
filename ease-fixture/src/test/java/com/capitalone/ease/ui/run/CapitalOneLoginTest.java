@@ -3,19 +3,11 @@ package com.capitalone.ease.ui.run;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import com.capitalone.ease.ui.fixture.AccountDetailsFixture;
 import com.capitalone.ease.ui.fixture.LoginPageFixture;
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.driver.SessionManager;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
-import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
-import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 import com.capitalone.ease_qa.ui.atf.selenium.WaitforConditionTimer;
 
 
@@ -25,12 +17,12 @@ public class CapitalOneLoginTest  {
 	
 	
 	
-    @Before
+  // @Before
 	public void intializrDriver() throws Exception{
     	
 	}
 
-	@Test
+	//@Test
 	public void doLogin() throws Exception{
 	    driver=SessionManager.getInstance().getNewSession("client","chrome.properties");
 	    //driver.getElementFactory().createWebPage().maximizeWindow();
@@ -55,6 +47,7 @@ public class CapitalOneLoginTest  {
 	   
 	   // System.out.println(" Print the text on Login "+element.getText());
 	   final LoginPageFixture login = new LoginPageFixture(driver);
+	   final AccountDetailsFixture accountDetails = new AccountDetailsFixture(driver);
 	    login.enterUsername("QA0_Chk458202779");
 	    login.enterPassword("abcd12345");
 	   
@@ -115,7 +108,14 @@ public class CapitalOneLoginTest  {
       //driver.windowScroll(0,300);
      // driver.getElementFactory().createHyperLink("viewDetailLink").click();
       
-    List<TextElement> elements = driver.getElementFactory().createTextReader("xpath://ul[@class='transactionsList']/li").getList();    
+      accountDetails.clickOnViewDetails();
+      
+     String balance= accountDetails.getAccountBalanceOnViewDetails();
+     System.out.println("Print the Balance"+balance);
+     
+      
+      
+    //List<TextElement> elements = driver.getElementFactory().createTextReader("xpath://ul[@class='transactionsList']/li").getList();    
       
       //driver.switchToActiveWindow();
       //driver.windowScroll(250,0);
@@ -154,17 +154,17 @@ public class CapitalOneLoginTest  {
 //		}
 //	});
 //      
-       //driver.getElementFactory().createButton("class:close-dialog").click();
-      // driver.getElementFactory().createButton("class:back-to-summary").click();
+       driver.getElementFactory().createButton("class:close-dialog").click();
+       driver.getElementFactory().createButton("class:back-to-summary").click();
 //      Assert.assertEquals("EASE | Account Summary",login.getTitle());
       
 	}
 	
 	
 	
-	@After
+	//@After
 	public void shutdownBrowser(){
-	  //driver.shutdown();
+	 // driver.shutdown();
 	}
 	
 /*	//@Test
