@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- *
+ * @author gtg716
  * Interface for DefaultSessionsFactory
  *
  */

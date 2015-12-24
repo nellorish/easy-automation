@@ -28,6 +28,8 @@ import com.capitalone.ease_qa.ui.atf.driver.SessionFactory;
 import com.capitalone.ease_qa.ui.atf.selenium.Impl.SeleniumDriver;
 
 /**
+ * @author gtg716
+ * 
  * SessionPool functionality used by SessionManager instances.
  * 
  * 
@@ -164,24 +166,7 @@ public class DefaultSessionFactory implements SessionFactory {
             } else {
             	if ((browser.equalsIgnoreCase("firefox") || browser.equalsIgnoreCase("*firefox"))) {
             		FirefoxProfile firefoxProfile = new FirefoxProfile();
-					firefoxProfile.setAcceptUntrustedCertificates(true);
-					firefoxProfile.setPreference("pdfjs.disabled", true);
-					firefoxProfile.setPreference("pdfjs.firstRun", false);
-					firefoxProfile.setPreference("plugin.scan.plid.all", false);
-					firefoxProfile
-							.setPreference("plugins.click_to_play", false);
-					firefoxProfile.setPreference("plugin.default.state", 2);
-					firefoxProfile.setPreference("plugin.state.java", 2);
-					firefoxProfile.setPreference("security.enable_java", true);
-					firefoxProfile.setPreference("plugin.scan.Acrobat", "9.0");
-					firefoxProfile.setPreference(
-							"network.automatic-ntlm-auth.allow-proxies", true);
-					
-					firefoxProfile.setPreference(
-							"network.proxy.autoconfig_url",
-							"http://proxy.kdc.capitalone.com:3133/proxy.pac");
-					firefoxProfile.setPreference("network.proxy.no_proxies_on",
-							"localhost, 127.0.0.1");
+            		addPreferences(firefoxProfile);
 					desiredCapabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
 					
 					wd = new FirefoxDriver(desiredCapabilities);
@@ -218,86 +203,93 @@ public class DefaultSessionFactory implements SessionFactory {
         return ret;
     }
     
-    private static void addExtensionsToFirefoxProfile(FirefoxProfile ffp, List<String> extensions)
-            throws IOException {
-        for (String s : extensions) {
-            ffp.addExtension(new File(s));
-        }
+//    private static void addExtensionsToFirefoxProfile(FirefoxProfile ffp, List<String> extensions)
+//            throws IOException {
+//        for (String s : extensions) {
+//            ffp.addExtension(new File(s));
+//        }
+//    }
+//    
+//    private static FirefoxBinary getFFBinary(String filePath) {
+//        File[] possibleLocations = { new File(filePath != null ? filePath : ""),
+//                new File("/Applications/firefox.app"),
+//                new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"), };
+//
+//        File ffbinary = null;
+//
+//        for (File curr : possibleLocations) {
+//            if (curr.exists()) {
+//                ffbinary = curr;
+//                break;
+//            }
+//        }
+//
+//        if (ffbinary == null) {
+//            throw new RuntimeException(
+//                    "Unable to find firefox binary, please ensure that firefox is installed "
+//                            + "on your system. If it is then please determine the path to your firefox.exe and set it as "
+//                            + "binaryPath=<FIREFOX PATH HERE>");
+//        } else {
+//            return new FirefoxBinary(ffbinary);
+//        }
+//    }
+//    
+    private static void addPreferences(FirefoxProfile firefoxProfile) {
+    	firefoxProfile.setAcceptUntrustedCertificates(true);
+		firefoxProfile.setPreference("pdfjs.disabled", true);
+		firefoxProfile.setPreference("pdfjs.firstRun", false);
+		firefoxProfile.setPreference("plugin.scan.plid.all", false);
+		firefoxProfile
+				.setPreference("plugins.click_to_play", false);
+		firefoxProfile.setPreference("plugin.default.state", 2);
+		firefoxProfile.setPreference("plugin.state.java", 2);
+		firefoxProfile.setPreference("security.enable_java", true);
+		firefoxProfile.setPreference("plugin.scan.Acrobat", "9.0");
+		firefoxProfile.setPreference(
+				"network.automatic-ntlm-auth.allow-proxies", true);
+		
+		firefoxProfile.setPreference(
+				"network.proxy.autoconfig_url",
+				"http://proxy.kdc.capitalone.com:3133/proxy.pac");
+		firefoxProfile.setPreference("network.proxy.no_proxies_on",
+				"localhost, 127.0.0.1");
     }
-    
-    private static FirefoxBinary getFFBinary(String filePath) {
-        File[] possibleLocations = { new File(filePath != null ? filePath : ""),
-                new File("/Applications/firefox.app"),
-                new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"), };
-
-        File ffbinary = null;
-
-        for (File curr : possibleLocations) {
-            if (curr.exists()) {
-                ffbinary = curr;
-                break;
-            }
-        }
-
-        if (ffbinary == null) {
-            throw new RuntimeException(
-                    "Unable to find firefox binary, please ensure that firefox is installed "
-                            + "on your system. If it is then please determine the path to your firefox.exe and set it as "
-                            + "binaryPath=<FIREFOX PATH HERE>");
-        } else {
-            return new FirefoxBinary(ffbinary);
-        }
-    }
-    
-    private static void addPreferences(FirefoxProfile ffp) {
-        ffp.setPreference("capability.policy.default.HTMLDocument.readyState", "allAccess");
-        ffp.setPreference("capability.policy.default.HTMLDocument.compatMode", "allAccess");
-        ffp.setPreference("capability.policy.default.Document.compatMode", "allAccess");
-        ffp.setPreference("capability.policy.default.Location.href", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.pageXOffset", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.pageYOffset", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.frameElement", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.frameElement.get", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.QueryInterface", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.mozInnerScreenY", "allAccess");
-        ffp.setPreference("capability.policy.default.Window.mozInnerScreenX", "allAccess");
-    }
-    
-    private static void addPreferences(FirefoxProfile ffp, String propertiesFile) {
-        Properties firefoxProfile = new Properties();
-
-        try {
-            firefoxProfile.load(new FileInputStream(propertiesFile));
-        } catch (Throwable th) {
-            throw new RuntimeException("Could not load firefox profile", th);
-        }
-
-        for (Object o : firefoxProfile.keySet()) {
-            String key = (String) o;
-            String getVal = null;
-            if (key.endsWith(".type")) {
-                getVal = key.substring(0, key.lastIndexOf("."));
-            }
-
-            if (getVal != null) {
-                String type = firefoxProfile.getProperty(key);
-                String value = firefoxProfile.getProperty(getVal + ".value");
-
-                if (value.contains("${PROJECT_PATH}")) {
-                    String projectPath = (new File("")).getAbsolutePath();
-                    value = projectPath + value.replaceAll("\\$\\{PROJECT_PATH\\}", "");
-                }
-
-                if (type.equalsIgnoreCase("BOOLEAN")) {
-                    ffp.setPreference(getVal, Boolean.parseBoolean(value));
-                } else if (type.equalsIgnoreCase("STRING")) {
-                    ffp.setPreference(getVal, value);
-                } else if (type.equalsIgnoreCase("INTEGER") || type.equalsIgnoreCase("INT")) {
-                    ffp.setPreference(getVal, Integer.parseInt(value));
-                }
-            }
-        }
-    }
+//    
+//    private static void addPreferences(FirefoxProfile ffp, String propertiesFile) {
+//        Properties firefoxProfile = new Properties();
+//
+//        try {
+//            firefoxProfile.load(new FileInputStream(propertiesFile));
+//        } catch (Throwable th) {
+//            throw new RuntimeException("Could not load firefox profile", th);
+//        }
+//
+//        for (Object o : firefoxProfile.keySet()) {
+//            String key = (String) o;
+//            String getVal = null;
+//            if (key.endsWith(".type")) {
+//                getVal = key.substring(0, key.lastIndexOf("."));
+//            }
+//
+//            if (getVal != null) {
+//                String type = firefoxProfile.getProperty(key);
+//                String value = firefoxProfile.getProperty(getVal + ".value");
+//
+//                if (value.contains("${PROJECT_PATH}")) {
+//                    String projectPath = (new File("")).getAbsolutePath();
+//                    value = projectPath + value.replaceAll("\\$\\{PROJECT_PATH\\}", "");
+//                }
+//
+//                if (type.equalsIgnoreCase("BOOLEAN")) {
+//                    ffp.setPreference(getVal, Boolean.parseBoolean(value));
+//                } else if (type.equalsIgnoreCase("STRING")) {
+//                    ffp.setPreference(getVal, value);
+//                } else if (type.equalsIgnoreCase("INTEGER") || type.equalsIgnoreCase("INT")) {
+//                    ffp.setPreference(getVal, Integer.parseInt(value));
+//                }
+//            }
+//        }
+//    }
 
   
    
