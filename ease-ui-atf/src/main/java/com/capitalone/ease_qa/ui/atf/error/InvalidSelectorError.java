@@ -4,6 +4,8 @@ public class InvalidSelectorError extends FixtureError {
 	
 	
 	/**
+	 * @author gtg716
+	 * 
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

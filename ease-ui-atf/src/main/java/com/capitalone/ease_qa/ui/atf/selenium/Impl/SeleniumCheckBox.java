@@ -2,6 +2,11 @@ package com.capitalone.ease_qa.ui.atf.selenium.Impl;
 
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumCheckBox extends SeleniumSelectableElement {
 
 	public SeleniumCheckBox(ExtUiDriver driver) {

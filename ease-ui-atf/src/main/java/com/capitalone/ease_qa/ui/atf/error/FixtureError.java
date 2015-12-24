@@ -3,6 +3,8 @@ package com.capitalone.ease_qa.ui.atf.error;
 public class FixtureError extends Exception {
 
 	/**
+	 * @author gtg716
+	 * 
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

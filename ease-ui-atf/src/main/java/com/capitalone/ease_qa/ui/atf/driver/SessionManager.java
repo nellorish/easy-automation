@@ -12,6 +12,8 @@ import org.openqa.selenium.remote.UnreachableBrowserException;
 import com.capitalone.ease_qa.ui.atf.driver.Impl.DefaultSessionFactory;
 
 /**
+ * @author gtg716
+ * 
  * SessionManager for the testing framework. Uses a ThreadLocal so each thread
  * of test execution has its own manager instance.
  * 

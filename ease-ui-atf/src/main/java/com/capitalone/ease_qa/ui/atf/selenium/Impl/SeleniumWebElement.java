@@ -15,6 +15,11 @@ import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumWebElement implements Element{
 	
 	

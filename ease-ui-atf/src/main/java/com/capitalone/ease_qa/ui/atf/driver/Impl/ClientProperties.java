@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import net.sourceforge.htmlunit.corejs.javascript.GeneratedClassLoader;
 
 /**
+ * @author gtg716
+ * 
  * Enables storage of and access to driver and browser configuration.
  *
  */

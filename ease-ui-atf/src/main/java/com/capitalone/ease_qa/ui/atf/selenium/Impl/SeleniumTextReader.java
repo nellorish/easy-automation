@@ -13,6 +13,12 @@ import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
+
 public class SeleniumTextReader extends SeleniumWebElement implements TextElement {
 
 	

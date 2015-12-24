@@ -5,6 +5,11 @@ package com.capitalone.ease_qa.ui.atf.selenium.Impl;
 import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.selenium.WebPage;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumWebPage extends SeleniumWebElement implements WebPage {
 
 	public SeleniumWebPage(ExtUiDriver driver) {

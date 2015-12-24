@@ -11,6 +11,12 @@ import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
 import com.capitalone.ease_qa.ui.atf.selenium.TextElement;
 import com.capitalone.ease_qa.ui.atf.selenium.WebPage;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
+
 public class SeleniumElementFactory implements ElementFactory {
 	private final static Logger LOG = LoggerFactory.getLogger(SeleniumElementFactory.class);
 	private final ExtUiDriver m_uiDriver;

@@ -4,6 +4,12 @@ import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
 import com.capitalone.ease_qa.ui.atf.selenium.ActionElement;
 
+
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumHyperLink extends SeleniumWebElement implements
 		ActionElement {
 

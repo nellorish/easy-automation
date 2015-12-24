@@ -12,6 +12,11 @@ import com.capitalone.ease_qa.ui.atf.selenium.Element;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
 
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumSelectableElement extends SeleniumWebElement implements
 		SelectableElement {
 

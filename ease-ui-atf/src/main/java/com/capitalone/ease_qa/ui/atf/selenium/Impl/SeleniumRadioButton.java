@@ -11,6 +11,12 @@ import com.capitalone.ease_qa.ui.atf.error.UnImplementedException;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.SelectableElement;
 
+
+/**
+ * 
+ * @author gtg716
+ *
+ */
 public class SeleniumRadioButton extends SeleniumSelectableElement implements
 		SelectableElement {
 

@@ -34,6 +34,13 @@ import com.capitalone.ease_qa.ui.atf.selenium.ElementFactory;
 import com.capitalone.ease_qa.ui.atf.selenium.MatchCallback;
 import com.capitalone.ease_qa.ui.atf.selenium.WaitforConditionTimer;
 
+
+/**
+ * 
+ * @author gtg716
+ *
+ */
+
 public class SeleniumDriver implements ExtUiDriver {
 
 
