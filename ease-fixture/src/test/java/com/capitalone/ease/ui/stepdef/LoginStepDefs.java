@@ -1,6 +1,8 @@
 package com.capitalone.ease.ui.stepdef;
 
 import org.junit.Assert;
+
+import com.capitalone.ease.ui.Utils.DriverUtils;
 import com.capitalone.ease.ui.fixture.AccountDetailsFixture;
 import com.capitalone.ease.ui.fixture.AccountSummaryFixture;
 import com.capitalone.ease.ui.fixture.LoginPageFixture;
@@ -9,6 +11,7 @@ import com.capitalone.ease_qa.ui.atf.driver.ExtUiDriver;
 import com.capitalone.ease_qa.ui.atf.driver.SessionManager;
 import com.capitalone.ease_qa.ui.atf.error.FixtureError;
 import com.capitalone.ease_qa.ui.atf.selenium.WebPage;
+import com.capitalone.ease_qa.ui.atf.selenium.Impl.SeleniumDriver;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
@@ -24,7 +27,7 @@ public class LoginStepDefs {
 	private AccountDetailsPage accountDetailsPage;
 	//public AbstractApplicationContext context = null;
 	private static final String QA ="https://ease-qamb.kdc.capitalone.com/ease-ui/#/login";
-	private static final String DEV="http://awseasedev14web1.kdc.capitalone.com:8080/ease-ui/#/login";
+	//private static final String DEV="http://awseasedev14web1.kdc.capitalone.com:8080/ease-ui/#/login";
 	
 	
 	
@@ -48,9 +51,14 @@ public class LoginStepDefs {
 		 }
 		 if(arg1.equalsIgnoreCase("firefox")){
 			 driver = SessionManager.getInstance().getNewSession("client","firefox.properties");
+			 driver.maximizeWindow();
 		 }
 		 
-		 driver.maximizeWindow();
+		if(arg1.equalsIgnoreCase("android")){
+			driver = new SeleniumDriver(DriverUtils.getDroidChromeDriver());
+		}
+		 
+		
 //		 switch(arg1){
 //		case "chrome" :
 //		 driver = SessionManager.getInstance().getNewSession("client","chrome.properties");
@@ -118,7 +126,7 @@ public class LoginStepDefs {
   
 	@Given("^I'm logged in to Ease on domain \"(.*?)\" with user \"(.*?)\" and password \"(.*?)\"$")
 	public void i_m_logged_in_to_Ease_on_domain_with_user_and_password(String arg1, String arg2, String arg3) throws FixtureError {
-		  driver.getElementFactory().createWebPage().goToPage(DEV);
+		  driver.getElementFactory().createWebPage().goToPage(QA);
 		   login.enterUsername(arg2);
 		   login.enterPassword(arg3);
 		   login.clickLogin();
