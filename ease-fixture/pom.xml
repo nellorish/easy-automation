@@ -80,12 +80,18 @@
           <scope>test</scope>
      </dependency>
      <!--   -->
-		 <dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>1.1.8</version>
-			<scope>test</scope>
-		</dependency>
+		 <!--<dependency>-->
+			<!--<groupId>info.cukes</groupId>-->
+			<!--<artifactId>cucumber-junit</artifactId>-->
+			<!--<version>1.1.8</version>-->
+			<!--<scope>test</scope>-->
+		<!--</dependency>-->
+		<dependency>
+    			<groupId>xml-apis</groupId>
+    			<artifactId>xml-apis</artifactId>
+   				<version>1.4.01</version>
+   				<scope>runtime</scope>
+		</dependency> 
 		  <dependency>
 		 	<groupId>com.capitalone.ease.ui</groupId>
 		 	<artifactId>ease-ui-atf</artifactId>
@@ -95,33 +101,41 @@
   </dependencies>
   <build>
   <plugins>
-          <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.14</version>
-                <configuration>
-                    <threadCount>${junit.threadCount}</threadCount>
-                    <parallel>${junit.parallel}</parallel>
-                </configuration>
-            </plugin>
-             <plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
-		</plugins>
+          <!--<plugin>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.14</version>-->
+                <!--<configuration>-->
+                    <!--<threadCount>${junit.threadCount}</threadCount>-->
+                    <!--<parallel>${junit.parallel}</parallel>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+             <!--<plugin>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>3.1</version>-->
+				<!--<configuration>-->
+					<!--<source>1.8</source>-->
+					<!--<target>1.8</target>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+
+	  <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <configuration>
+			  <source>1.6</source>
+			  <target>1.6</target>
+		  </configuration>
+	  </plugin>
+  </plugins>
   </build>
-        <profiles>
-         <profile>
-            <id>parallel</id>
-            <properties>
-                <junit.threadCount>5</junit.threadCount>
-                <junit.parallel>classes</junit.parallel>
-            </properties>
-        </profile>
-   </profiles>
+        <!--<profiles>-->
+         <!--<profile>-->
+            <!--<id>parallel</id>-->
+            <!--<properties>-->
+                <!--<junit.threadCount>5</junit.threadCount>-->
+                <!--<junit.parallel>classes</junit.parallel>-->
+            <!--</properties>-->
+        <!--</profile>-->
+   <!--</profiles>-->
 		
 </project>

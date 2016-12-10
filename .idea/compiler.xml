@@ -17,14 +17,14 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile default="false" name="Annotation profile for ease-ui-atf" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="ease-ui-atf" />
       </profile>
-      <profile default="false" name="Annotation profile for ease-fixture" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -34,8 +34,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ease-automation" target="1.5" />
-      <module name="ease-fixture" target="1.8" />
-      <module name="ease-ui-atf" target="1.5" />
+      <module name="ease-fixture" target="1.5" />
+      <module name="ease-ui-atf" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

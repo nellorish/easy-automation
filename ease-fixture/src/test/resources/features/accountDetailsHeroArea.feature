@@ -1,6 +1,7 @@
 
 Feature: Regression End to End Flow
-
+   
+ # @droid
   Scenario Outline: Validate the Account details page Hero section for Checking, Savings, KSA and Money accounts
     Given browser to use is "<browser>"
     Given I'm logged in to Ease on domain "QA" with user "<username>" and password "<password>"

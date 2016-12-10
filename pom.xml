@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.capitalone.ease.qa</groupId>
+  <groupId>org.nellore.ease.qa</groupId>
   <artifactId>ease-automation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -17,13 +17,7 @@
          <module>ease-ui-atf</module>
     </modules> 
   
-  <organization>
-  	<name>CapitalOne</name>
-  </organization>
-   <scm>
-  	<developerConnection>Mohan_Nellore</developerConnection>
-  	<url>https://github.kdc.capitalone.com/gtg716/ease-bank-atf.git</url>
-   </scm>
+
   <description>Parent project for all ease automation tests</description>
   
   <dependencies>

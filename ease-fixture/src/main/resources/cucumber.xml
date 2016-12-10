@@ -7,7 +7,7 @@
 
     
      <context:annotation-config/>
-     <context:component-scan base-package="com.capitalone.ease.ui.stepdef"></context:component-scan>
+     <context:component-scan base-package="org.nellore.ease.ui.stepdef"></context:component-scan>
 
       <import resource="classpath:spring-chrome.xml"/>
       <import resource="classpath:ease-fixtures.xml"/>

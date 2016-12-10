@@ -20,5 +20,5 @@ Feature: Regression End to End Flow
 
     Examples: 
       |browser| username         | password  | account  | accountNumber | routingNumber | primaryAccountHolderName | APY   | YearInterest | accountType |
-      |chrome| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00%| $12.63        | saving      |
-      |chrome| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00% | $12.63        | saving      |
+      |andriod| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00%| $0.00        | saving      |
+      |andriod| QA0_Chk458202779 | abcd12345 | checking | 36000128837   | 031176110     | BRENDA KKNZKLY           | 3.00% | $0.00        | saving      |
