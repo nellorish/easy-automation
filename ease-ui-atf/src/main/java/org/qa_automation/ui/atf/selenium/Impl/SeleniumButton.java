@@ -7,7 +7,7 @@ import org.qa_automation.ui.atf.driver.ExtUiDriver;
 import org.qa_automation.ui.atf.error.FixtureError;
 import org.openqa.selenium.Keys;
 
-//import com.capitalone.ease.ui.testframework.selenium.SelectableElement;
+//import qa_automation.ease.ui.testframework.selenium.SelectableElement;
 import org.qa_automation.ui.atf.selenium.ActionElement;
 
 /**

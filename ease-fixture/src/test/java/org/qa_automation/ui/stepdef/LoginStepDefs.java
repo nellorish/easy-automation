@@ -27,8 +27,8 @@ public class LoginStepDefs {
 	private LoginPageFixture login;
 	private AccountDetailsPage accountDetailsPage;
 	//public AbstractApplicationContext context = null;
-	private static final String QA ="https://ease-regression.kdc.capitalone.com/ease-ui/#/login";
-	//private static final String DEV="http://awseasedev14web1.kdc.capitalone.com:8080/ease-ui/#/login";
+	private static final String QA ="https://ease-regression.kdc.qa_automation.com/ease-ui/#/login";
+	//private static final String DEV="http://awseasedev14web1.kdc.qa_automation.com:8080/ease-ui/#/login";
 	
 	
 	

@@ -66,7 +66,7 @@ public class SeleniumHyperLinkTest {
 		setDefaultText();
 		ActionElement e = new SeleniumElementFactory(m_driver).createHyperLink("partiallink:partial");
 		
-		Assert.assertEquals(e.getHtmlAttribute("href"), "https://pulse.kdc.capitalone.com/welcome");
+		Assert.assertEquals(e.getHtmlAttribute("href"), "https://pulse.kdc.qa_automation.com/welcome");
 		Assert.assertEquals(e.isElementExists(), true);
 		
 	}

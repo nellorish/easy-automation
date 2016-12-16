@@ -83,7 +83,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: cglib:cglib:3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm:4.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
-    <orderEntry type="module" module-name="ease-ui-atf" />
+    <orderEntry type="library" name="Maven: com.capitalone.ease.ui:ease-ui-atf:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.testdriven.guice:commons-configuration:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />

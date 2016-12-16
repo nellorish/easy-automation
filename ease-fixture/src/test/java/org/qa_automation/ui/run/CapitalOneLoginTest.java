@@ -11,7 +11,7 @@ import org.qa_automation.ui.atf.selenium.WaitforConditionTimer;
 import static org.junit.Assert.assertEquals;
 
 
-public class CapitalOneLoginTest  {
+public class qa_automationLoginTest  {
 	
 	private ExtUiDriver driver;
 	
@@ -28,7 +28,7 @@ public class CapitalOneLoginTest  {
 	    //driver.getElementFactory().createWebPage().maximizeWindow();
 	    
 	    driver.eval("window.resizeTo(1024, 768);");
-	    driver.getElementFactory().createWebPage().goToPage("https://ease-qamb.kdc.capitalone.com/ease-ui/#/login");
+	    driver.getElementFactory().createWebPage().goToPage("https://ease-qamb.kdc.qa_automation.com/ease-ui/#/login");
 	    //driver.pauseFor(2);
 //	    driver.waitUntil(new WaitforConditionTimer() {
 //			@Override
@@ -170,7 +170,7 @@ public class CapitalOneLoginTest  {
 /*	//@Test
 	public void testFirefox() throws Exception{
 		ExtUiDriver driver = SessionManager.getInstance().getNewSession("client","firefox.properties");
-	    driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.capitalone.com/ease-ui/#/login");
+	    driver.getElementFactory().createWebPage().goToPage("https://ease-qa.kdc.qa_automation.com/ease-ui/#/login");
 	    LoginPageFixture login = new LoginPageFixture(driver);
 	    login.enterUsername("al_user21");
 	    login.enterPassword("abcd12345");
@@ -193,9 +193,9 @@ public class CapitalOneLoginTest  {
 		
 		System.out.println(System.getProperty("webdriver.chrome.driver"));
 		driver = DriverUtils.getDriver();
-		CapitalOneLoginTest cap = new CapitalOneLoginTest();
+		qa_automationLoginTest cap = new qa_automationLoginTest();
 		LoginPageFixture login = new LoginPageFixture(driver);
-		driver.getElementFactory().createWebPage().goToPage("http://awseasedev11web1.kdc.capitalone.com:8080/ease-ui/#/login");
+		driver.getElementFactory().createWebPage().goToPage("http://awseasedev11web1.kdc.qa_automation.com:8080/ease-ui/#/login");
 		login.enterUsername("al_user21");
 		login.enterPassword("abcd12345");
 		login.clickLogin();*/

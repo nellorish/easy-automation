@@ -3,7 +3,7 @@
    
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.capitalone.ease.ui</groupId>
+  <groupId>qa_automation.ease.ui</groupId>
   <artifactId>ease-ui-atf</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 	<build>
@@ -68,7 +68,7 @@
 		</dependency>
   </dependencies>
   <scm>
-  	<url>https://github.kdc.capitalone.com/gtg716/ease-ui-atf.git</url>
+  	<url>https://github.kdc.qa_automation.com/gtg716/ease-ui-atf.git</url>
   	<developerConnection>Mohan Nellore</developerConnection>
   </scm>
 </project>

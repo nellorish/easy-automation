@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class DriverUtils {
 
-	private static String remotePerfectoURL = "https://capitalone.perfectomobile.com/nexperience/perfectomobile/wd/hub";
+	private static String remotePerfectoURL = "https://qa_automation.perfectomobile.com/nexperience/perfectomobile/wd/hub";
 	private static Properties systemProperties;
 
 	@SuppressWarnings("rawtypes")
@@ -37,14 +37,14 @@ public class DriverUtils {
 		WebDriver driver;
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
-//        String user = "pranab.mohanty@capitalone.com";
+//        String user = "pranab.mohanty@qa_automation.com";
 //         String password="Perfecto123";
-//         String host="capitalone.perfectomobile.com";
+//         String host="qa_automation.perfectomobile.com";
 		capabilities = new DesiredCapabilities();
 		URL perfecto = new URL(remotePerfectoURL);
 		capabilities.setCapability("max-duration", 2700);
 		capabilities.setCapability("command-timeout", 2700);
-		capabilities.setCapability("user", "team42@capitalone.com");
+		capabilities.setCapability("user", "team42@qa_automation.com");
 		capabilities.setCapability("password", "Perfecto123");
 		// capabilities.setBrowserName(browser);
 		//capabilities.setVersion(version);
@@ -84,7 +84,7 @@ public class DriverUtils {
 		}
 
 		systemProperties = System.getProperties();
-		systemProperties.setProperty("http.proxyHost", "proxy.kdc.capitalone.com");
+		systemProperties.setProperty("http.proxyHost", "proxy.kdc.qa_automation.com");
 		systemProperties.setProperty("http.proxyPort", "8099");
 		driver = new RemoteWebDriver(perfecto, capabilities);
 

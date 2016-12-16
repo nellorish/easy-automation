@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    
   <modelVersion>4.0.0</modelVersion>
-<groupId>com.capitalone</groupId>
+<groupId>com.qa_automation</groupId>
   <artifactId>ease-fixture</artifactId>
 
 
@@ -10,7 +10,7 @@
   <url>http://maven.apache.org</url>
   
   <parent>
-		<groupId>com.capitalone.ease.qa</groupId>
+		<groupId>com.qa_automation.ease.qa</groupId>
 		<artifactId>ease-automation</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -93,7 +93,7 @@
    				<scope>runtime</scope>
 		</dependency> 
 		  <dependency>
-		 	<groupId>com.capitalone.ease.ui</groupId>
+		 	<groupId>com.qa_automation.ease.ui</groupId>
 		 	<artifactId>ease-ui-atf</artifactId>
 		 	<version>0.0.1-SNAPSHOT</version>
 		 	<!-- <type>pom</type> -->

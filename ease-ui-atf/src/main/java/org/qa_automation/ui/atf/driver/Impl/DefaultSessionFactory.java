@@ -122,7 +122,7 @@ public class DefaultSessionFactory implements SessionFactory {
         		
         		systemProperties = System.getProperties();
 				systemProperties.setProperty("http.proxyHost",
-						"proxy.kdc.capitalone.com");
+						"proxy.kdc.qa_automation.com");
 				systemProperties.setProperty("http.proxyPort", "8099");
 
 
@@ -137,7 +137,7 @@ public class DefaultSessionFactory implements SessionFactory {
 
 //				systemProperties = System.getProperties();
 //				systemProperties.setProperty("http.proxyHost",
-//						"proxy.kdc.capitalone.com");
+//						"proxy.kdc.qa_automation.com");
 //				systemProperties.setProperty("http.proxyPort", "8099");
 				
 			if (browser.equalsIgnoreCase("chrome")) {
@@ -288,7 +288,7 @@ public class DefaultSessionFactory implements SessionFactory {
 		
 		firefoxProfile.setPreference(
 				"network.proxy.autoconfig_url",
-				"http://proxy.kdc.capitalone.com:3133/proxy.pac");
+				"http://proxy.kdc.qa_automation.com:3133/proxy.pac");
 		firefoxProfile.setPreference("network.proxy.no_proxies_on",
 				"localhost, 127.0.0.1");
     }
